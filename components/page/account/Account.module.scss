@@ -1,0 +1,702 @@
+@import '@/styles/variables';
+
+.mainBox {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+
+    @include sm-laptop-screen {
+        gap: 20px;
+    }
+
+    @include mini-screen {
+        flex-direction: column;
+    }
+
+    .leftMenuBox {
+        border: 1px solid $gray_1;
+        border-radius: 24px;
+        padding: 20px 0;
+        box-shadow: 0px 4px 20px 0px #0000001A;
+        width: 268px;
+
+        @include mini-screen {
+            width: 100%;
+        }
+
+        .mainBoxUl {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .mainBoxLi {
+                .mainBoxLink {
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    color: $darkNavy;
+                    @include df-c-sb;
+                    gap: 12px;
+                    opacity: 0.75;
+                    @include text(16px, 24px, 700);
+                    position: relative;
+
+                    span {
+                        display: flex;
+                        gap: 12px;
+                    }
+
+                    &.activeLi,
+                    &:hover {
+                        color: $dark;
+                        opacity: 1;
+
+                        &::after {
+                            content: '';
+                            width: 3px;
+                            height: 36px;
+                            background-color: $darkNavy;
+                            border-top-left-radius: 8px;
+                            border-bottom-left-radius: 8px;
+                            position: absolute;
+                            right: 0;
+                        }
+                    }
+                }
+
+                &.subMainBoxLi {
+                    padding-left: 40px;
+                }
+
+                .subMenu {
+                    padding: 0;
+                    list-style: none;
+
+                    .subMenuLink {
+                        padding: 12px 20px;
+                        text-decoration: none;
+                        color: $darkNavy;
+                        @include df-vc;
+                        justify-content: flex-start;
+                        gap: 12px;
+                        opacity: 0.75;
+                        @include text(14px, 20px, 500);
+                        position: relative;
+                        border-radius: 8px;
+                        text-transform: capitalize;
+
+                        &.activeLi,
+                        &:hover {
+                            color: $dark;
+                            opacity: 1;
+
+                            &::after {
+                                content: '';
+                                width: 3px;
+                                height: 36px;
+                                background-color: $darkNavy;
+                                border-top-left-radius: 8px;
+                                border-bottom-left-radius: 8px;
+                                position: absolute;
+                                right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .rightSideBox {
+        width: calc(100% - 288px);
+
+        @include mini-screen {
+            width: 100%;
+        }
+    }
+}
+
+.commonBoxCard {
+    border: 1px solid $gray_1;
+    border-radius: 24px;
+    box-shadow: 0px 4px 20px 0px #0000001A;
+
+    h2 {
+        @include text(24px, 28px, 500);
+        margin-bottom: 20px;
+        @include df-vc;
+        letter-spacing: -0.02em;
+        font-family: var(--font-lato);
+        gap: 5px;
+
+        @include mobile-sm-view {
+            @include text(20px, 26px, 500);
+        }
+
+        svg {
+            @include mobile-sm-view {
+                min-width: 20px;
+            }
+        }
+    }
+
+    &.accountSetting {
+        padding: 50px;
+
+        @include sm-laptop-screen {
+            padding: 20px;
+        }
+
+        .avatarContainer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 20px;
+
+            .avatarMain {
+                display: flex;
+                margin-bottom: 5px;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .avatar {
+                width: 98px;
+                height: 98px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+
+            .avatarImage {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .uploadButton {
+                @include df-c-c;
+                gap: 10px;
+                padding: 10px 20px;
+                background-color: $navyBlue;
+                color: $white;
+                border-radius: 5px;
+                cursor: pointer;
+                @include text(14px, 21px, 400);
+                font-family: var(--font-roboto);
+
+                &:hover {
+                    opacity: 0.75;
+                }
+
+                @include mobile-view {
+                    padding: 10px;
+                }
+            }
+
+            .hiddenInput {
+                display: none;
+            }
+
+            p {
+                @include text(14px, 18px, 300);
+                color: $dark_2;
+                font-family: var(--font-arial);
+                margin-bottom: 0;
+            }
+        }
+
+        .switchBoxesWrapper {
+            @include df-c-sb;
+            margin-top: 30px;
+            gap: 15px;
+
+            @include mini-screen {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .LeftWrapper {
+                .switchBoxesWrapperInner {
+                    &:not(:last-child) {
+                        margin-bottom: 10px;
+                    }
+
+                    p {
+                        margin-bottom: 3px;
+                        @include text(14px, 21px, 300);
+                        color: $gray_2;
+                        font-family: var(--font-arial);
+                    }
+
+                    .switchBox {
+                        @include text(14px, 21px, 400);
+                        color: $darkNavy;
+
+                        input,
+                        label {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .rightWrapper {
+                display: flex;
+                gap: 10px;
+
+                @include mobile-sm-view {
+                    width: 100%;
+                    justify-content: space-around;
+                }
+
+
+            }
+        }
+    }
+
+    &.shippingAdBox {
+
+        .titleBar {
+            padding: 50px 30px;
+            @include df-c-sb;
+
+            h2 {
+                margin: 0;
+            }
+
+            @include sm-laptop-screen {
+                padding: 20px;
+            }
+        }
+    }
+
+    .inputWithIcon {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .inputIcon {
+            position: absolute;
+            right: 20px;
+        }
+    }
+
+    .nodataWrapper {
+        @include df-c-c;
+        flex-direction: column;
+        gap: 2px;
+        padding: 50px;
+        text-align: center;
+    }
+
+    &.dropDownCommonBox {
+        padding: 50px;
+
+        @include sm-laptop-screen {
+            padding: 20px;
+        }
+    }
+
+    .dropDownMainBox {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .dropDownBtn {
+            margin-top: 5px;
+            border-color: $gray_1;
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 7px;
+            color: $darkNavy;
+
+            &:hover {
+                background-color: transparent !important;
+            }
+        }
+
+        .dropDownOuter {
+            position: absolute;
+            z-index: 9;
+            background-color: $white;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transform: translate(0, 88px);
+            box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+
+            .dropUl {
+                list-style: none;
+                padding: 2px;
+                margin: 0;
+                max-height: 280px;
+                overflow: auto;
+
+                &::-webkit-scrollbar-track {
+                    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+                    background-color: transparent;
+                }
+
+                &::-webkit-scrollbar {
+                    width: 4px;
+                    background-color: transparent;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: transparent;
+                    border-radius: 8px;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                .dropItem {
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $gray_1;
+                    }
+
+                    .itemLink {
+                        color: $darkNavy2;
+                        text-decoration: none;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 10px;
+
+                        &:hover {
+                            background-color: $gray_1;
+                        }
+
+                        .titleB {
+                            @include text(14px, 20px, 400);
+                            font-family: var(--font-roboto);
+                            margin-bottom: 3px;
+                        }
+
+                    }
+                }
+            }
+
+        }
+    }
+
+    &.legacyBox {
+        .titleBar {
+            h3 {
+                margin-bottom: 30px;
+
+                @include sm-laptop-screen {
+                    margin-bottom: 15px;
+                }
+            }
+
+            p {
+                margin-bottom: 20px;
+            }
+        }
+
+        .rowLinesMb {
+            .inputGroupWrapper {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                max-width: 400px;
+
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+
+                .inputSwitch {
+                    margin-top: 30px;
+
+                    input {
+                        cursor: pointer;
+                    }
+                }
+
+                .inputGroups {
+                    width: 100%;
+
+                    .inputBoxWrapper {
+                        @include df-vc;
+
+                        .inputGroupIcon {
+                            background-color: transparent;
+                            border: none;
+                            padding: 0;
+                            position: absolute;
+                            z-index: 9;
+                            left: 12px;
+
+                            .gryIcons {
+                                opacity: 0.5;
+                            }
+                        }
+
+                        input {
+                            padding-left: 48px;
+                            border-radius: 7px !important;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .enrollAnouncmenBox {
+        background-color: rgba(22, 79, 242, 0.1);
+        padding: 30px;
+        border-radius: 10px;
+        color: $darkNavy;
+        margin-bottom: 30px;
+
+        @include sm-laptop-screen {
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            @include text(24px, 28px, 500);
+            margin-bottom: 20px;
+            @include df-vc;
+            letter-spacing: -0.02em;
+            font-family: var(--font-lato);
+            gap: 5px;
+
+            @include mobile-sm-view {
+                @include text(20px, 26px, 500);
+            }
+
+            svg {
+                @include mobile-sm-view {
+                    min-width: 20px;
+                }
+            }
+        }
+
+        p {
+            @include text(16px, 24px, 400);
+            margin: 0;
+            font-family: var(--font-arial);
+
+            &.anPBox {
+                display: flex;
+                gap: 10px;
+
+            }
+        }
+    }
+}
+
+.saveBtn {
+    border-color: $darkNavy;
+    color: $darkNavy;
+    border-radius: 7px;
+
+    @include mobile-sm-view {
+        padding: 10px;
+    }
+
+    &.filled {
+        // border-color: $darkNavy;
+        // background-color: $darkNavy;
+        color: $white;
+        height: 48px;
+    }
+
+}
+
+.modalFooterCommon {
+
+    @include mobile-sm-view {
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+    }
+
+    .commonFooterBtn {
+        min-width: 120px;
+
+        @include mobile-sm-view {
+            margin: 0;
+            flex: 1;
+            height: 46px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.rowLines {
+
+    @include tab-max-high {
+        gap: 24px;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
+
+    .wFullXsm {
+        @include tab-max-high {
+            width: 100%;
+        }
+    }
+}
+
+.nodataWrapper {
+    img {
+        width: 100%;
+
+        @include tab-max-high {
+            max-height: max-content;
+            padding: 15px;
+        }
+    }
+}
+
+.tableDataBox {
+    .dropDownBtn {
+        background-color: transparent !important;
+        color: $black;
+
+        &:hover {
+            background-color: transparent !important;
+            border-color: transparent !important;
+            opacity: 1;
+        }
+    }
+
+    .actionBtnIcons {
+        color: $darkNavy;
+        padding: 0 !important;
+
+        &.greenSvg {
+            color: green;
+        }
+
+        &.blueSvg {
+            color: $navyBlue;
+        }
+
+        &.redSvg {
+            color: $red_2;
+        }
+
+        &:hover {
+            background-color: transparent !important;
+            border-color: transparent !important;
+        }
+
+        &:not(:last-child) {
+            margin-right: 4px;
+        }
+    }
+}
+
+.dropDownBtnModal {
+    background-color: transparent !important;
+    border: 1px solid $gray_1 !important;
+
+    padding: 10px !important;
+    color: $tablePlaceHolder !important;
+    display: flex;
+    justify-content: space-between !important;
+    height: 48px;
+    border-radius: 7px !important;
+    width: 100%;
+}
+
+.dropDownOuter {
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
+    width: 100%;
+    min-width: 100px;
+    position: absolute;
+
+    &.dropDownOuterlange {
+        transform: translate(-90px, 18px);
+        max-width: 240px;
+    }
+
+    &.dropDownOuterPosition {
+        transform: translate(-50px, 0px);
+        background: inherit;
+        border-radius: 8px;
+    }
+
+    .dropUl {
+        list-style: none;
+        padding: 2px;
+        margin: 0;
+        max-height: 280px;
+        overflow: auto;
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar {
+            width: 4px;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .dropItem {
+            &:not(:last-child) {
+                border-bottom: 1px solid $gray_1;
+            }
+
+            .unread {
+                &.itemLink {
+                    background-color: $notificationNavy;
+                }
+            }
+
+            .itemLink {
+                color: $darkNavy2;
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+
+                &:hover {
+                    background-color: $gray_1;
+                }
+
+                &.langItm {
+                    flex-direction: row;
+                    gap: 10px;
+                    @include text(14px, 18px, 400);
+                    font-family: var(--font-roboto);
+                    align-items: center;
+                    padding: 8px;
+                }
+
+                .titleB {
+                    @include text(14px, 20px, 400);
+                    font-family: var(--font-roboto);
+                    margin-bottom: 3px;
+                }
+
+                .discrp {
+                    @include text(12px, 16px, 400);
+                    font-family: var(--font-roboto);
+                    color: $dark_2;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,1031 @@
+@import 'variables';
+
+:root {
+  --darkNavy: #0A1A3B;
+}
+
+html {
+  font-size: 10px;
+  height: 100%;
+}
+
+body {
+  // font-family: $roobertProFont;
+  font-family: $arialFont;
+  background-color: $white;
+  height: 100%;
+
+  .mainBoxWrapper {
+    height: 100%;
+  }
+
+  .navBox {
+    position: relative;
+    height: calc(100% - 50px);
+    overflow: auto;
+    padding-right: 4px;
+    box-sizing: content-box;
+
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        background-color: $dark_3;
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &.dark-mode {
+    --darkNavy: $white;
+    background-color: $darkBg;
+    color: $white;
+
+    p {
+      color: $white;
+    }
+
+    .darkBg {
+      background-color: transparent;
+      fill: $darkBg;
+    }
+
+    .mainNav {
+      background-color: $darkBg !important;
+    }
+
+    .dropDownOuter {
+      background-color: $darkBg !important;
+      box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.202) !important;
+      border: 1px solid $gray_1;
+
+      .dropHeader {
+        background-color: $darkBg !important;
+        color: $white !important;
+      }
+
+      .notificationItems {
+        color: $white !important;
+      }
+
+      .discrp {
+        color: $white_2 !important;
+      }
+
+      .unread {
+        &.notificationItems {
+          background-color: $lightBlue_2 !important;
+        }
+      }
+
+      .notificationItems {
+        &:hover {
+          background-color: $dark_1 !important;
+        }
+      }
+
+      .dropAllBtn {
+        background-color: $darkBg !important;
+        color: $white !important;
+      }
+
+
+
+    }
+
+    .checkboxLabelDark {
+      background-color: $white !important;
+
+      svg {
+        color: $darkNavy !important;
+      }
+
+      .ballDark {
+        background-color: $darkNavy !important;
+      }
+    }
+
+    .dropDownBtn {
+      color: $white !important;
+
+      svg {
+        color: $white_2 !important;
+      }
+    }
+
+    .dropDown {
+      background-color: $darkBg !important;
+
+      .dropDownBtn {
+        color: $white !important;
+
+        svg {
+          color: $white_2 !important;
+        }
+      }
+
+      ul {
+        background-color: $darkBg !important;
+
+        li {
+          color: $white !important;
+        }
+      }
+    }
+
+    .headerBar {
+      color: $white;
+
+      .menuBtnMain {
+        &::after {
+          background-color: $white;
+        }
+      }
+    }
+
+    .cardBox {
+      background-color: $darkBg !important;
+    }
+
+    .tabLiTitle {
+      background-color: $darkBg2 !important;
+    }
+
+    .nav-tabs .nav-link.active {
+      background-color: $darkBg;
+    }
+
+    .infoLinkBox {
+      background-color: $dark_2 !important;
+      color: $white_2 !important;
+
+      svg {
+        fill: $white_2 !important;
+      }
+    }
+
+    .rdt_TableCell button {
+      svg {
+        color: $white_2 !important;
+      }
+    }
+
+    .rdt_Table,
+    .rdt_Pagination {
+      background-color: $darkBg !important;
+    }
+
+    .rdt_Pagination {
+      color: $white !important;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .rdt_TableHeader {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: $darkBg !important;
+      color: $white !important;
+    }
+
+    .rdt_TableHead {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: $black_2 !important;
+      color: $white !important;
+    }
+
+    .rdt_TableCell {
+      color: $white !important;
+    }
+
+    .rdt_TableRow {
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+
+      &:hover {
+        background-color: $dark_1 !important;
+      }
+
+      &:not(:last-child) {
+        border-bottom-color: rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    .form-label {
+      color: $white !important;
+    }
+
+    .form-control {
+      background-color: $darkBg !important;
+      color: $white !important;
+    }
+
+    .commonModal {
+      .modal-content {
+        background-color: $darkBg;
+        color: $white;
+      }
+    }
+
+    .rightSection {
+      background-color: $darkBg;
+    }
+
+    .infoBoxOuter {
+      background-color: $darkBg;
+    }
+
+    .formInputBox {
+      background-color: $darkBg !important;
+    }
+
+    .commonActionOutlineBtn {
+      border-color: $white !important;
+      color: $white !important;
+    }
+
+    .switchBox {
+      color: $white !important;
+    }
+
+    .mainBoxLink {
+      color: $white !important;
+
+      &.activeLi,
+      &:hover {
+        &::after {
+          background-color: $white !important;
+        }
+      }
+
+    }
+
+    .subMenuLink {
+      color: $white !important;
+    }
+
+    .outLineBtn {
+      color: $white !important;
+      border-color: $gray_1 !important;
+    }
+
+    .enrollAnouncmenBox {
+      color: $white !important;
+    }
+
+    .commonBoxCardDark {
+      h2 {
+        color: $white !important;
+      }
+    }
+
+    .dropDownCustom {
+      color: $white !important;
+      border-color: $gray_1 !important;
+
+      svg {
+        color: $white !important;
+      }
+
+      &:hover {
+        border-color: $gray_1 !important;
+      }
+    }
+
+    .customtableDataBox {
+      .rdt_TableHeader {
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+      }
+
+      .rdt_TableHeadRow,
+      .rdt_TableHead {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    .grayBoxed {
+      background-color: $dark_2 !important;
+
+      span {
+        color: $white !important;
+
+        &.textBlue {
+          color: $litecyne !important;
+
+        }
+      }
+    }
+
+    .labelBoxTxt,
+    .h3Title {
+      color: $white_2 !important;
+    }
+
+    .canvasInnerBox {
+      background-color: $darkBg !important;
+    }
+
+    .cardBoxInnerLine {
+      background-color: $darkBg !important;
+      border: 1px solid $gray_1;
+    }
+
+    .labelName {
+      color: $navyBlue2 !important;
+    }
+
+    .labelLevel,
+    .labelSection {
+      color: $white !important;
+    }
+
+    .zoomBtn {
+      background-color: $gray_4 !important;
+      border-color: $gray_4 !important;
+      color: $white !important;
+    }
+
+    .rankBar {
+      background-color: $black_2 !important;
+
+      .rankLabel {
+        color: $white !important;
+      }
+
+      .rankName {
+        color: $white_5 !important;
+      }
+    }
+
+    .searchWrpperInput {
+      input {
+        background-color: $darkBg !important;
+        border: 1px solid $gray_1;
+        color: $white !important;
+      }
+    }
+
+    .levelBtn {
+      border: 1px solid $gray_1;
+
+      &.lastLevel {
+        background-color: $darkBg !important;
+        color: $white !important;
+      }
+    }
+
+    .dashCard {
+      background-color: $darkBg !important;
+      border: 1px solid $gray_1 !important;
+
+      .titleLine {
+        color: $white !important;
+      }
+
+      .valueLine {
+        color: $navyBlue !important;
+      }
+    }
+
+    .rs-input-group.rs-input-group-inside {
+      background-color: $darkBg !important;
+      border: 1px solid $gray_1;
+      color: $white !important;
+
+      .rs-input {
+        color: $white !important;
+        background-color: $darkBg !important;
+      }
+    }
+
+    .rs-picker-popup {
+      color: $white !important;
+      background-color: $darkBg !important;
+      border: 1px solid $gray_1;
+    }
+
+    .rs-btn-subtle {
+      color: $white !important;
+    }
+
+    .cardTitleLine {
+      color: $white !important;
+    }
+
+    .levelInfoBtn {
+      &.dropDownCustom {
+        border: none !important;
+      }
+    }
+
+    .infoBlueBox {
+      background-color: $lightBlue !important;
+      color: $dark !important;
+    }
+
+    .summaryBox {
+      background-color: $darkNavy2 !important;
+
+      h2,
+      h3,
+      h4 {
+        color: $white !important;
+      }
+
+
+      .technologyFeeWrapper {
+        span {
+          color: $white !important;
+        }
+      }
+
+      .summaryLines {
+        span {
+          color: $white !important;
+
+          &.alertRed {
+            color: $red_2 !important;
+          }
+        }
+      }
+    }
+
+    .popoverMainWrapper {
+      background-color: $darkBg !important;
+      box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.202) !important;
+      border: 1px solid $gray_1;
+
+      .popoverHeader {
+        color: $white !important;
+        background-color: $black_3;
+      }
+    }
+  }
+}
+
+.commonModal {
+  .modal-content {
+    background-color: $white;
+    font-family: var(--font-roboto);
+    border-radius: 24px;
+  }
+
+  .modalHeaderCommon {
+    border: none;
+    padding: 30px 30px 0;
+  }
+
+  .modalFooterCommon {
+    border: none;
+    padding: 0 30px 30px;
+  }
+
+  .modal-body {
+    padding: 30px;
+
+    input {
+      border-radius: 7px;
+    }
+  }
+
+  &.mdModal {
+    .modal-dialog {
+      max-width: 720px;
+    }
+  }
+  &.smModal {
+    .modal-dialog {
+      max-width: 650px;
+    }
+  }
+}
+
+.dangerBadge {
+  background-color: $orangeVer !important;
+}
+
+.successBadge {
+  background-color: $green !important;
+}
+
+.mt-20 {
+  margin-top: 2rem !important;
+}
+
+.mb-30 {
+  margin-bottom: 3rem !important;
+}
+
+.mb-44 {
+  margin-bottom: 4.4rem !important;
+}
+
+.btn.btn-light {
+  color: #2b373f !important;
+}
+
+.removeUnderline {
+  text-decoration: none;
+}
+
+:dir(rtl) {
+  .authPopupOuter {
+    .modal-dialog {
+      .modal-content {
+        .modal-body {
+          .closeBtn.btn.btn-primary {
+            left: 1.2rem;
+            right: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+.authPopupOuter {
+  .modal-dialog {
+    max-width: 132rem;
+    width: 100%;
+
+    @include sm-mini-screen {
+      max-width: 110rem;
+    }
+
+    @include mini-screen {
+      max-width: 90rem;
+    }
+
+    @include ipad-view {
+      max-width: 57.4rem;
+    }
+
+    @include mobile-view {
+      max-width: calc(100% - 3.6rem);
+      margin: auto;
+    }
+
+    .modal-content {
+      border-radius: 1.2rem;
+      background: $white;
+      border: none;
+      overflow: hidden;
+
+      .modal-body {
+        padding: 0;
+        display: flex;
+        min-height: 78.6rem;
+
+        @include ipad-view {
+          padding: 5.4rem 2.4rem 2.4rem 2.4rem;
+          min-height: unset;
+        }
+
+        @include tab-view {
+          padding: 4.8rem 1.8rem 1.8rem 1.8rem;
+        }
+
+        .closeBtn.btn.btn-primary {
+          position: absolute;
+          right: 1.2rem;
+          top: 1.2rem;
+          background: transparent;
+          border-color: transparent;
+          padding: 0;
+        }
+
+        .btn {
+          @include ipad-view {
+            --bs-btn-font-size: 1.8rem;
+          }
+
+          @include tab-view {
+            --bs-btn-font-size: 1.4rem;
+          }
+
+          @include mobile-sm-view {
+            --bs-btn-font-size: 1.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.buttonPillGrp {
+  gap: 0;
+  margin: 0;
+  border-radius: 500rem;
+  display: inline-flex;
+  border: 2px solid $primary;
+
+  .pillBtn {
+    border-radius: 500rem;
+    font-style: normal;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.24px;
+    padding: 0.9rem 1.8rem;
+    color: #181f24;
+    text-transform: capitalize;
+    background: transparent;
+    border: 1px solid transparent;
+    white-space: nowrap;
+
+    &.active {
+      color: $white;
+      background: $primary;
+      border-color: $primary;
+    }
+  }
+}
+
+.authSliderCard {
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 334px;
+    aspect-ratio: 334/382;
+    display: block;
+    margin: 0 auto 3.2rem;
+  }
+
+  .title {
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #0b0e10;
+    @include font-32;
+    @include fw-700;
+    @include lh-150;
+  }
+
+  .desc {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    color: #36454f;
+    text-align: center;
+    @include font-18;
+    @include fw-500;
+    @include lh-150;
+  }
+}
+
+.confirmPopup {
+  .modal-content {
+    max-width: 60rem;
+    padding: 3.2rem;
+    border-radius: 1.2rem;
+    border-color: $white;
+    background: $white;
+
+    .modal-body {
+      padding: 0;
+
+      .popupContent {
+        text-align: center;
+
+        .iconImage {
+          display: block;
+          width: 100%;
+          margin: 0 auto 3rem;
+          max-width: 12rem;
+          height: auto;
+          aspect-ratio: 1/1;
+        }
+
+        .title {
+          margin-bottom: 0.8rem;
+          color: #111111;
+          @include font-24;
+          @include fw-700;
+          @include lh-150;
+        }
+
+        .subtitle {
+          color: #8d9397;
+          @include font-18;
+          @include fw-400;
+          @include lh-150;
+        }
+
+        .description {
+          color: #8d9397;
+          @include font-18;
+          @include fw-500;
+          @include lh-150;
+
+          a {
+            margin-left: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.custom-progress-bar .progress-bar {
+  background-color: $green !important;
+}
+
+.membershipTab {
+  &.nav-tabs {
+    .nav-link {
+      padding-bottom: 21px !important;
+      font-size: 24px !important;
+      line-height: 28px !important;
+      letter-spacing: -0.02em;
+
+      @include sm-laptop-screen {
+        font-size: 18px !important;
+        line-height: 24px !important;
+      }
+    }
+  }
+}
+
+.tabCommonBox {
+  padding: 24px 24px 0;
+
+  @include sm-laptop-screen {
+    padding: 16px 16px 0;
+  }
+
+  &.nav-tabs {
+    .nav-link {
+      padding-bottom: 24px;
+      @include text(14px, 21px, 700);
+      color: $gray_2;
+      display: flex;
+      gap: 10px;
+      border: none;
+
+      @include sm-laptop-screen {
+        padding-bottom: 16px;
+      }
+
+      &[aria-selected="true"] {
+        border-bottom: 4px solid $navyBlue !important;
+      }
+
+      &.active {
+        color: var(--darkNavy);
+
+        svg {
+          color: $navyBlue;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+          border: none;
+        }
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  }
+}
+
+
+.smlclipBoxes {
+  .bottomLine {
+    font-size: 16px !important;
+    line-height: 26px !important;
+    font-weight: 700;
+    color: var(--darkNavy) !important;
+  }
+}
+
+.commonActionBtn {
+  // background-color: $litecyne_2;
+  // border-color: $litecyne_2;
+  padding: 10px;
+  @include text(14px, 18px, 400);
+  font-family: var(--font-roboto);
+
+  &:focus,
+  &:hover,
+  &:active {
+    // background-color: $litecyne_2 !important;
+    // border-color: $litecyne_2 !important;
+    box-shadow: none !important;
+  }
+}
+
+.kmvUTK {
+  border-radius: 0 !important;
+}
+
+.rdt_Table,
+.rdt_Pagination {
+  background-color: $white !important;
+}
+
+.rdt_TableHeadRow {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.rdt_Pagination {
+  justify-content: flex-start !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-family: var(--font-roboto) !important;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.rdt_TableHeader {
+  background-color: $white !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  font-family: var(--font-roboto) !important;
+}
+
+.rdt_TableHead {
+  background-color: $white_4 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  // font-family: var(--font-roboto) !important;
+  font-family: var(--font-lato) !important;
+  color: $headerTextTable !important;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.rdt_TableRow {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-family: var(--font-roboto) !important;
+  padding: 7px 0;
+}
+
+.rdt_TableCell input {
+  background-color: transparent !important;
+  border: 1px solid rgba(145, 158, 171, 0.32) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-family: var(--font-roboto) !important;
+  padding: 10px !important;
+  color: $tablePlaceHolder !important;
+  height: 48px;
+  border-radius: 7px !important;
+
+  &::placeholder {
+    color: $tablePlaceHolder !important;
+  }
+}
+
+.rdt_TableBody {
+  border-radius: 0px;
+}
+
+.rdt_TableCol,
+.rdt_TableCell {
+  padding: 0 10px !important;
+}
+.rdt_TableCell button {
+  border-radius: 2px !important;
+  width: 100% !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-family: var(--font-roboto) !important;
+  padding: 10px !important;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px !important;
+
+  &.commonActionBtnsm {
+    max-width: 140px;
+    height: 44px;
+    border-radius: 7px !important;
+  }
+
+  &:hover {
+    // background-color: $litecyne_2 !important;
+    // border-color: $litecyne_2 !important;
+    opacity: 0.7;
+  }
+}
+
+.treedropDownOuterMobile {
+  position: absolute;
+  z-index: 99;
+  background-color: $white;
+  padding: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  bottom: 0;
+  left: 0;
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .closeBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+  }
+
+  .headBox {
+    @include df-vc;
+    gap: 15px;
+    margin-bottom: 20px;
+
+    .avatarImg {
+      border-radius: 50%;
+    }
+
+    .nameWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  .infoBox {
+    border-top: 1px solid $gray_1;
+    padding: 20px 0 0;
+
+    .linesWrp {
+      @include df-c-sb;
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.rangeDatePickerWrapper {
+  &.rs-picker-toggle-wrapper {
+    @include ipad-view {
+      width: 100%;
+    }
+  }
+
+  .rs-input-group.rs-input-group-inside {
+    min-width: 180px;
+    height: 50px;
+
+    @include ipad-view {
+      width: 100%;
+    }
+
+    @include mobile-sm-view {
+      max-width: 100%;
+    }
+  }
+}

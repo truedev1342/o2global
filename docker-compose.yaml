@@ -1,0 +1,17 @@
+version: '3'
+services:
+  dev: 
+    build: 
+      context: ./
+      args:
+        - NODE_ENV=${NODE_ENV}
+    env_file:
+      - .env
+    ports:
+      - ${SERVER_PORT}:3000
+    environment:
+      - NODE_ENV=${NODE_ENV}
+  # nginx: 
+  #   build: ./nginx
+  #   ports:
+  #     - 80:80

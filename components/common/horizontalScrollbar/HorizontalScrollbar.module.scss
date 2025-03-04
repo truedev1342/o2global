@@ -1,0 +1,42 @@
+.scrollBar {
+  height: 6px;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  transition: 0.4s ease;
+
+  &.horizontal {
+    width: 100%;
+    height: 6px;
+    right: 0;
+    bottom: 0;
+    top: auto;
+  }
+
+  .scrollThumb {
+    position: absolute;
+    bottom: 0;
+    background: #9e9e9e;
+    height: 100%;
+    border-radius: 5px;
+    top: auto;
+    cursor: grab !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    transition: opacity 0.3s ease-in-out;
+
+    &.hidden {
+      opacity: 0;
+      transition: 0.4s ease;
+    }
+  }
+}
+
+.scrollBarContainer {
+  .scrollHost {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+  }
+}

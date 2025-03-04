@@ -1,0 +1,552 @@
+@import '@/styles/variables';
+
+.mainBox {
+    position: relative;
+    padding: 50px;
+
+    @include sm-laptop-screen {
+        padding: 20px;
+    }
+
+    @include mobile-view {
+        padding: 15px;
+    }
+
+    .canvasBoxMainWrapper {
+        position: relative;
+        border: 1px solid $gray_1;
+        box-shadow: 0px 4px 20px 0px #0000001A;
+        border-radius: 24px;
+
+        .canvasHeader {
+            padding: 28px;
+            @include df-c-sb;
+            gap: 25px;
+
+            @include sm-laptop-screen {
+                padding: 18px;
+                gap: 15px;
+            }
+
+            @include mobile-view {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .searchBox {
+                flex: 1;
+                max-width: 370px;
+
+                @include mobile-view {
+                    width: 100%;
+                }
+
+                .searchWrpper {
+                    @include df-vc;
+                    border: 1px solid $gray_1;
+                    gap: 10px;
+                    border-radius: 7px;
+                    position: relative;
+
+                    svg {
+                        position: absolute;
+                        left: 15px;
+                    }
+
+                    input {
+                        border-radius: 7px;
+                        border: none;
+                        padding: 0 10px 0 50px;
+                        width: 100%;
+                        height: 50px;
+
+                        @include mobile-view {
+                            padding: 0 10px 0 40px;
+                            height: 40px;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+
+            .levelBtnWrpper {
+                display: flex;
+
+                .levelBtn {
+                    border-radius: 5px;
+                    width: 97px;
+                    height: 50px;
+                    @include df-c-c;
+                    @include text(14px, 21px, 700);
+                    font-family: var(--font-arial);
+                    padding: 0;
+
+                    @include mobile-view {
+                        height: 40px;
+                    }
+
+                    &:first-child {
+                        border-top-right-radius: 0px;
+                        border-bottom-right-radius: 0px;
+                    }
+
+                    &:last-child {
+                        border-top-left-radius: 0px;
+                        border-bottom-left-radius: 0px;
+                    }
+
+                    &.lastLevel {
+                        background-color: $white;
+                        color: $darkNavy;
+                        border-color: $gray_1;
+                    }
+                }
+            }
+        }
+
+        .legandsWrapper {
+            @include df-c-c;
+            gap: 8px;
+            flex-wrap: wrap;
+
+            @include sm-laptop-screen {
+                gap: 4px;
+            }
+
+            @include tab-max-high {
+                margin-bottom: 10px;
+            }
+
+            .legands {
+                border: 1px solid $gray_1;
+                border-radius: 8px;
+                padding: 8px 10px 8px 22px;
+                position: relative;
+                @include text(14px, 21px, 400);
+                color: var(--darkNavy);
+                height: 26px;
+                display: flex;
+                align-items: center;
+
+                &::before {
+                    content: '';
+                    background-color: $green;
+                    height: 6px;
+                    width: 6px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 10px;
+                    transform: translateY(-50%);
+                }
+
+                &.green {
+                    &::before {
+                        background-color: $green;
+                    }
+                }
+
+                &.blue {
+                    &::before {
+                        background-color: $navyBlue;
+                    }
+                }
+
+                &.cyne {
+                    &::before {
+                        background-color: $litecyne;
+                    }
+                }
+
+                &.red {
+                    &::before {
+                        background-color: $red;
+                    }
+                }
+
+                &.orange {
+                    &::before {
+                        background-color: $orangeLeg;
+                    }
+                }
+            }
+        }
+
+        .zoomControls {
+            position: absolute;
+            top: 0;
+            right: 0;
+            @include df-c-c;
+            padding: 10px 15px;
+            z-index: 9;
+            gap: 5px;
+            flex-direction: column;
+
+            @include tab-max-high {
+                position: relative;
+                flex-direction: row;
+                padding-top: 0;
+            }
+
+            .zoomBtn {
+                border: 1px solid $gray_1;
+                padding: 5px;
+                background-color: $white;
+                width: 36px;
+
+                @include tab-max {
+                    margin-left: 8px;
+                }
+            }
+        }
+
+        .canvasInnerBox {
+            background-color: $white_5;
+            position: relative;
+            padding: 28px;
+            border-top: 1px solid $gray_1;
+            border-bottom: 1px solid $gray_1;
+            overflow: auto;
+            height: calc(100vh - 210px);
+
+            @include sm-laptop-screen {
+                padding: 18px;
+            }
+
+            .levelMainWrapper {
+                .levelWrapper {
+                    @include df-c-c;
+
+                    &:first-child {
+                        .cardBox {
+                            &::before {
+                                border-color: transparent;
+                            }
+
+                            .cardBoxInner {
+                                &::before {
+                                    background-color: transparent;
+                                }
+                            }
+
+                            .eyeIcon {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        .cardBox {
+                            &:only-child {
+                                &::after {
+                                    display: none;
+                                }
+
+                                &::before {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+
+                    .cardBox {
+                        position: relative;
+
+                        .eyeIcon {
+                            position: absolute;
+                            bottom: 10px;
+                            left: 50%;
+                            transform: translate(-50%, 0%);
+                            padding: 5px;
+                        }
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: -25px;
+                            left: 0;
+                            width: 100%;
+                            border-top: 3px solid $gray_6;
+                            box-sizing: border-box;
+                        }
+
+                        &:first-child {
+                            &::before {
+                                left: calc(50% - 1px);
+                                width: calc(50% + 1px);
+                            }
+                        }
+
+                        &:last-child {
+                            &::before {
+                                right: calc(50% - 1px);
+                                width: calc(50% + 1px);
+                            }
+                        }
+
+                        &:only-child {
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                bottom: 24px;
+                                left: calc(50% - 1px);
+                                width: 3px;
+                                height: 59px;
+                                background-color: $gray_6;
+                            }
+                        }
+                    }
+
+                    .cardBoxInner {
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: -84px;
+                            left: calc(50% - 1px);
+                            width: 3px;
+                            height: 49px;
+                            background-color: $gray_6;
+                        }
+
+                        .cardBoxInnerLine {
+                            position: relative;
+                            border-radius: 16px;
+                            border-top: 4px solid $navyBlue2;
+                            border-bottom: 4px solid $navyBlue2;
+                            padding: 8px;
+                            background-color: $white;
+                            margin: 60px 15px;
+                            width: calc(20% - 20px);
+                            min-width: 229px;
+                            z-index: 9;
+
+                            .headBar {
+                                @include df-c-c;
+                                position: absolute;
+                                width: 100%;
+                                left: 0;
+                                top: -20px;
+
+                                .avatarBox {
+                                    position: relative;
+                                    box-shadow: 0px 4px 8px 0px #00000040;
+                                    border-radius: 14px;
+                                    display: block;
+                                    transform: translate(0, -35px);
+
+                                    @include mobile-view {
+                                        transform: translate(0, -25px);
+                                    }
+
+                                    .avatarImg {
+                                        border-radius: 14px;
+
+                                        @include mobile-view {
+                                            max-width: 70px;
+                                            height: 70px;
+                                        }
+                                    }
+
+                                    .status {
+                                        border: 1px solid $white;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        bottom: 5px;
+                                        right: 5px;
+                                        transform: translate(50%, 50%);
+                                        height: 12px;
+                                        width: 12px;
+
+                                        &.online {
+                                            background-color: $green;
+                                        }
+
+                                        &.away {
+                                            background-color: $orangeLeg;
+                                        }
+
+                                        &.offline {
+                                            background-color: $red;
+                                        }
+                                    }
+
+                                }
+
+                                .levelInfoBtn {
+                                    position: absolute;
+                                    right: 0;
+                                    padding: 10px 15px;
+
+                                    @include mobile-view {
+                                        top: 15px;
+                                        right: -10px;
+                                    }
+                                }
+                            }
+
+                            .infoBar {
+                                @include df-c-c;
+                                flex-direction: column;
+                                padding-top: 40px;
+
+                                @include mobile-view {
+                                    padding-top: 30px;
+                                }
+
+                                span {
+                                    @include text(16px, 24px, 700);
+                                    font-family: var(--font-arial);
+
+                                    &.name {
+                                        color: $darkNavy;
+                                        margin-bottom: 4px;
+                                    }
+
+                                    &.level {
+                                        color: $black_2;
+                                        @include text(14px, 21px, 400);
+                                        margin-bottom: 15px;
+
+                                        @include mobile-view {
+                                            margin-bottom: 8px;
+                                        }
+                                    }
+
+                                    &.section {
+                                        @include text(16px, 24px, 400);
+                                        color: $dark_3;
+                                    }
+                                }
+                            }
+
+                            .rankBar {
+                                @include df-c-c;
+                                align-items: flex-start;
+                                padding: 12px 0;
+                                background-color: $white_5;
+                                border-radius: 8px;
+                                margin-top: 20px;
+
+                                @include mobile-view {
+                                    padding: 8px 0;
+                                    margin-top: 10px;
+                                }
+
+                                .rankBox {
+                                    @include df-c-c;
+                                    gap: 8px;
+                                    flex-direction: column;
+                                    @include text(12px, 18px, 700);
+                                    font-family: var(--font-arial);
+                                    color: $darkNavy;
+                                    position: relative;
+                                    padding: 0 17px;
+                                    text-align: center;
+
+                                    .rankLabel {
+                                        color: $gray_4;
+                                    }
+
+                                    &:last-child {
+                                        &::before {
+                                            content: '';
+                                            height: 30px;
+                                            width: 2px;
+                                            background-color: $gray_1;
+                                            position: absolute;
+                                            left: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .treedropDownOuter {
+        position: absolute;
+        z-index: 99;
+        background-color: $white;
+        padding: 18px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transform: translate(260px, 0px);
+        box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+        // width: 100%;
+        width: 380px;
+        max-width: 380px;
+        border-radius: 24px;
+        top: 0;
+
+        @include mobile-view {
+            width: 100%;
+            left: 0;
+            transform: none;
+            bottom: 0;
+            max-width: 100%;
+            top: auto;
+        }
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar {
+            width: 4px;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .closeBtn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 10px;
+        }
+
+        .headBox {
+            @include df-vc;
+            gap: 15px;
+            margin-bottom: 20px;
+
+            .avatarImg {
+                border-radius: 50%;
+            }
+
+            .nameWrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        .infoBox {
+            border-top: 1px solid $gray_1;
+            padding: 20px 0 0;
+
+            .linesWrp {
+                @include df-c-sb;
+
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}

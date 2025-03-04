@@ -1,0 +1,358 @@
+@import '@/styles/variables';
+
+.mainBox {
+    position: relative;
+    padding: 50px;
+
+    @include sm-laptop-screen {
+        padding: 20px;
+    }
+
+    .rowLines {
+        @include tab-max-high {
+            gap: 24px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        .wFullXsm {
+            @include tab-max-high {
+                width: 100%;
+            }
+        }
+    }
+
+    .checkboxLabel {
+        @include text(16px, 24px, 300);
+        font-family: var(--font-Arial);
+    }
+
+    .actionBtnWrapper{
+        margin-top: 20px;
+        @include df-vc;
+        justify-content: flex-end;
+
+        .actionBtn{
+            border-radius: 7px;
+            height: 50px;
+            @include df-c-c;
+        }
+    }
+
+    .boxWrapper {
+        display: flex;
+        gap: 20px;
+
+        @include tab-max {
+            flex-direction: column;
+        }
+
+        .formOuterWrapper {
+            width: 100%;
+        }
+
+        .commonBox {
+            border-radius: 24px;
+            box-shadow: 0px 4px 20px 0px #0000001A;
+            border: 1px solid $gray_1;
+            padding: 20px;
+        }
+
+        .titleline {
+            @include text(24px, 28px, 500);
+            font-family: var(--font-Lato);
+            letter-spacing: -0.02em;
+
+            &.titlelinemb {
+                margin: 25px 0;
+            }
+        }
+
+        .formBox {
+            .userLabel{
+                color: $gray_2;
+                @include text(14px, 21px, 500);
+                font-family: var(--font-Arial);
+            }
+
+            input {
+                &[type="text"] {
+                    height: 50px;
+                    border-radius: 7px;
+                    border: 1px solid $gray_1;
+                    @include text(16px, 24px, 300);
+                }
+            }
+
+            .titleLineWrapper {
+                @include df-c-sb;
+                margin-bottom: 25px;
+
+                button {
+                    border-radius: 7px;
+                    @include text(14px, 21px, 500);
+                    font-family: var(--font-Arial);
+                    @include df-c-c;
+                    gap: 5px;
+                    padding: 13px 24px;
+                    height: 50px;
+                }
+            }
+
+            .columnRelative {
+                position: relative;
+            }
+
+            .dropDownBtn {
+                border-color: $gray_1;
+                width: 100%;
+                height: 50px;
+                @include df-c-sb;
+                border-radius: 7px;
+                // color: $darkNavy;
+                left: 0;
+                padding: 10px;
+                @include text(16px, 24px, 300);
+                color: $gray_2;
+                font-family: var(--font-Arial);
+
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+
+            .dropDownOuter {
+                position: absolute;
+                z-index: 9;
+                background-color: $white;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                transform: translate(0, 0);
+                box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
+                width: 100%;
+                border-radius: 8px;
+
+                .dropUl {
+                    list-style: none;
+                    padding: 2px;
+                    margin: 0;
+                    max-height: 280px;
+                    overflow: auto;
+
+                    &::-webkit-scrollbar-track {
+                        -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+                        background-color: transparent;
+                    }
+
+                    &::-webkit-scrollbar {
+                        width: 4px;
+                        background-color: transparent;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: transparent;
+                        border-radius: 8px;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    .dropItem {
+                        &:not(:last-child) {
+                            border-bottom: 1px solid $gray_1;
+                        }
+
+                        .itemLink {
+                            color: $darkNavy2;
+                            text-decoration: none;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 10px;
+                            @include text(16px, 24px, 300);
+
+                            &:hover {
+                                background-color: $gray_1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .formVeriants {
+                margin-top: 30px;
+            }
+
+            .formSelection {
+                width: 50%;
+
+                @include tab-max-high {
+                    width: 100%;
+                }
+            }
+
+            .veriantBoxes {
+                display: flex;
+                flex-direction: column;
+             
+                h3 {
+                    @include text(16px, 24px, 500);
+                    margin-bottom: 15px;
+                }
+            }
+
+            .infoBlueBox {
+                background-color: $litecyne_3;
+                border: 1px solid $litecyne_4;
+                border-radius: 7px;
+                padding: 10px;
+                width: 100%;
+                @include text(16px, 24px, 400);
+                font-family: var(--font-Arial);
+                display: inline-block;
+            }
+
+            .paraText {
+                @include text(16px, 24px, 300);
+                font-family: var(--font-Arial);
+                color: $gray_4;
+
+                .redText {
+                    color: $red_2;
+                }
+            }
+        }
+
+        .summaryBoxWrapperMain {
+            width: 100%;
+            max-width: 506px;
+
+            @include tab-max{
+                max-width: 100%;
+            }
+        }
+
+        .summaryBox {
+            background-color: $summaryBg;
+
+            h3{
+                @include text(24px, 28px, 500);
+                font-family: var(--font-Lato);
+                letter-spacing: -0.02em;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                @include text(24px, 28px, 700);
+                margin-bottom: 20px;
+                font-family: var(--font-Lato);
+                letter-spacing: -0.02em;
+                color: $darkBg;
+            }
+
+            h4 {
+                @include text(18px, 28px, 700);
+                margin-bottom: 20px;
+                font-family: var(--font-Lato);
+                color: $darkBg;
+            }
+
+            .summaryLinesWrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                margin-bottom: 15px;
+
+                .summaryLines {
+                    @include df-c-sb;
+
+                    span {
+                        @include text(18px, 27px, 500);
+                        font-family: var(--font-Arial);
+                        color: $darkBg;
+
+                        &.summaryValue {
+                            &.alertRed {
+                                color: $red_2;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .technologyFee {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+
+                @include tab-max {
+                    flex-direction: column;
+                }
+
+                .technologyFeeWrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    width: 100%;
+
+                    .feeBox {
+                        display: flex;
+                        gap: 10px;
+                        width: 100%;
+
+                        @include tab-max {
+                            flex-direction: column;
+                        }
+
+                        .feeDetails {
+                            width: 50%;
+
+                            @include tab-max {
+                                width: 100%;
+                            }
+
+                            .feeItem {
+                                @include df-c-sb;
+                                gap: 10px;
+
+                                span {
+                                    @include text(14px, 21px, 300);
+                                    font-family: var(--font-Arial);
+                                    color: $gray_5;
+
+                                    &.feeValue {
+                                        color: $darkBg;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .infoBox {
+                @include df-vc;
+                gap: 7px;
+                padding: 12px;
+                border-radius: 10px;
+                border: 1px solid $greenBorder;
+                background-color: $greenBg;
+                @include text(16px, 24px, 300);
+                color: $darkNavy;
+                font-family: var(--font-Arial);
+                margin-bottom: 15px;
+
+                svg {
+                    color: $limeGreen;
+                    min-width: 18px;
+                }
+
+                strong {
+                    @include text(16px, 24px, 500);
+                }
+            }
+        }
+    }
+}

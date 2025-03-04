@@ -1,0 +1,114 @@
+@import '@/styles/variables';
+
+.tagBoxs {
+    border: 1px solid $gray_1;
+    padding: 20px;
+    border-radius: 7px;
+    @include df-c-sb;
+
+    &:last-child {
+        &:nth-child(odd) {
+            grid-column: span 2;
+        }
+    }
+
+    &.centeredTags {
+        justify-content: center;
+
+        img {
+            @include sm-laptop-screen {
+                max-width: 50px;
+                object-fit: contain;
+            }
+        }
+    }
+
+    @include sm-laptop-screen {
+        padding: 12px;
+        gap: 4px;
+    }
+
+    .leftBox {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .topLine {
+        @include text(14px, 21px, 400);
+        color: $gray_2;
+
+        @include sm-laptop-screen {
+            @include text(12px, 18px, 400);
+        }
+    }
+
+    .bottomLine {
+        @include text(24px, 36px, 700);
+        color: var(--darkNavy);
+
+        @include sm-laptop-screen {
+            @include text(18px, 26px, 700);
+        }
+    }
+
+    .iconWrapper {
+        position: relative;
+
+        .icnImg {
+            width: 46px;
+            height: 46px;
+
+            @include sm-laptop-screen {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        &.progImgWrapper {
+            min-width: 48px;
+            height: 48px;
+            @include df-c-c;
+            @include text(10px, 15px, 700);
+
+            .progressImg {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+
+        .checkedImg {
+            width: 21px;
+            height: 21px;
+        }
+
+    }
+
+    .leftMergeBox {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        @include sm-laptop-screen {
+            gap: 6px;
+        }
+
+        .topLine {
+            @include text(14px, 21px, 700);
+            color: var(--darkNavy);
+
+            @include sm-laptop-screen {
+                @include text(12px, 18px, 700);
+            }
+        }
+
+        .bottomLine {
+            @include text(14px, 21px, 400);
+            color: $gray_2;
+
+            @include sm-laptop-screen {
+                @include text(12px, 18x, 400);
+            }
+        }
+    }
+}

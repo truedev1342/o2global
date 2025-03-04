@@ -1,0 +1,852 @@
+@import '@/styles/variables';
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+.mainBox {
+    display: flex;
+    position: relative;
+    height: 100%;
+
+    .overlayBox {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .45);
+        transition: opacity .3s linear, height 0s ease .3s;
+
+        &.overlayinVisible {
+            pointer-events: none;
+            height: 0;
+            opacity: 0;
+        }
+
+        &.overlayVisible {
+            height: 100vh;
+            opacity: 1;
+            transition: none;
+            animation: antdDrawerFadeIn 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            pointer-events: auto;
+            z-index: 99;
+        }
+    }
+
+    .rightSection {
+        width: calc(100% - 360px);
+        flex: auto;
+        margin-left: 270px;
+        transition: margin-left 0.7s ease-in-out;
+        background-color: $white;
+
+        &.expanded {
+            width: calc(100% - 80px);
+            margin-left: 80px;
+            transition: margin-left 0.7s ease-in-out;
+
+            @include ipad-sm-view {
+                margin-left: 0;
+            }
+        }
+
+        @include sm-laptop-screen {
+            width: calc(100% - 270px);
+            margin-left: 270px;
+        }
+
+        @include ipad-sm-view {
+            margin-left: 0;
+            width: 100%;
+        }
+
+        &.shrinked {
+            @include ipad-sm-view {
+                margin-left: 0;
+            }
+        }
+
+        .innerSectionWrp {
+            padding: 40px 60px;
+
+            @include sm-laptop-screen {
+                padding: 20px;
+            }
+
+            .cardBox {
+                // padding: 40px 28px;
+
+                padding: 20px;
+                border: 1px solid $gray_1;
+                box-shadow: 0px 4px 20px 0px #0000001A;
+                border-radius: 24px;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                // z-index: 8;
+                background-color: $white;
+
+                @include sm-laptop-screen {
+                    padding: 20px;
+                }
+
+                .titleLine {
+                    @include text(24px, 28px, 500);
+                    // letter-spacing: -0.02em;
+                    margin-bottom: 30px;
+                    position: relative;
+                    font-family: var(--font-lato);
+
+                    &.centeredTitleLine {
+                        @include df-c-c;
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+
+                    .infoLink {
+                        position: absolute;
+                        right: 0;
+                        color: var(--darkNavy);
+                        padding: 0;
+                    }
+                }
+            }
+
+            .tagBoxs {
+                border: 1px solid $gray_1;
+                padding: 20px;
+                border-radius: 7px;
+                @include df-c-sb;
+                gap: 10px;
+
+                &.centeredTags {
+                    justify-content: center;
+
+                    img {
+                        @include sm-laptop-screen {
+                            max-width: 50px;
+                            object-fit: contain;
+                        }
+                    }
+                }
+
+                @include sm-laptop-screen {
+                    padding: 12px;
+                    gap: 4px;
+                }
+
+                .leftBox {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .topLine {
+                    @include text(14px, 21px, 400);
+                    color: $gray_2;
+
+                    @include sm-laptop-screen {
+                        @include text(12px, 18px, 400);
+                    }
+                }
+
+                .bottomLine {
+                    @include text(24px, 36px, 700);
+                    color: var(--darkNavy);
+
+                    @include sm-laptop-screen {
+                        @include text(18px, 26px, 700);
+                    }
+                }
+
+                .iconWrapper {
+                    position: relative;
+
+                    .icnImg {
+                        width: 46px;
+                        height: 46px;
+
+                        @include sm-laptop-screen {
+                            width: 36px;
+                            height: 36px;
+                        }
+                    }
+
+                    &.progImgWrapper {
+                        min-width: 48px;
+                        height: 48px;
+                        @include df-c-c;
+                        @include text(10px, 15px, 700);
+
+                        .progressImg {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                        }
+                    }
+
+                    .checkedImg {
+                        width: 21px;
+                        height: 21px;
+                    }
+
+                }
+
+                .leftMergeBox {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+
+                    @include sm-laptop-screen {
+                        gap: 6px;
+                    }
+
+                    .topLine {
+                        @include text(14px, 21px, 700);
+                        color: var(--darkNavy);
+
+                        @include sm-laptop-screen {
+                            @include text(12px, 18px, 700);
+                        }
+                    }
+
+                    .bottomLine {
+                        @include text(14px, 21px, 400);
+                        color: $gray_2;
+
+                        @include sm-laptop-screen {
+                            @include text(12px, 18x, 400);
+                        }
+                    }
+                }
+            }
+
+            .sectionGrids {
+                margin-bottom: 28px;
+
+                &.duelGrid {
+                    display: flex;
+                    width: 100%;
+                    gap: 25px;
+
+                    @include sm-laptop-screen {
+                        gap: 14px;
+                    }
+
+                    @include mini-screen {
+                        flex-direction: column;
+                    }
+                }
+
+                .duelBoxGrid {
+                    display: flex;
+                    width: 100%;
+
+                    @include sm-laptop-screen {
+                        flex-direction: column;
+                    }
+
+                    .duelTagBoxWrapper {
+                        display: flex;
+                        flex-direction: column;
+                        width: 50%;
+                        padding-right: 24px;
+
+                        @include sm-laptop-screen {
+                            width: 100%;
+                            padding-right: 0;
+                        }
+
+                        &:last-child {
+                            border-left: 2px solid $gray_1;
+                            padding-left: 24px;
+                            padding-right: 0;
+
+                            @include sm-laptop-screen {
+                                border-left: none;
+                                padding-left: 0;
+                            }
+                        }
+
+                        .clipBoxHead {
+                            @include df-c-c;
+                            flex-direction: column;
+
+                            .avtarImg {
+                                margin-bottom: 20px;
+
+                                @include sm-laptop-screen {
+                                    margin-bottom: 14px;
+                                }
+                            }
+
+                            &.progressHead {
+                                height: 160px;
+
+                                .imgInnerWrapper {
+                                    position: relative;
+                                    height: 112px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: flex-end;
+                                    width: 100%;
+                                }
+
+                                .progressImg {
+                                    position: absolute;
+                                    height: 114px;
+                                    top: 0;
+                                }
+                            }
+
+                            span {
+                                @include text(16px, 24px, 700);
+                                color: var(--darkNavy);
+                            }
+
+                            p {
+                                @include text(16px, 24px, 400);
+                                color: $gray_2;
+                                margin: 0;
+
+                                code {
+                                    color: $gray_2;
+                                }
+                            }
+                        }
+
+                        .clipBoxes {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 8px;
+
+                            &.fullClipBoxes {
+                                grid-template-columns: auto;
+                                width: 100%;
+
+                                .tagBoxs {
+                                    &:last-child {
+                                        &:nth-child(odd) {
+                                            grid-column: auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.duelColumnWrapper {
+                            justify-content: space-between;
+
+                            .clipBoxHead {
+                                margin-top: 30px;
+                            }
+                        }
+
+                        .upgradeBtn {
+                            background-color: $navyBlue;
+                            color: $white;
+                            @include df-c-c;
+                            @include text(14px, 21px, 700);
+                            padding: 30px;
+                            border-radius: 7px;
+                            border-color: $navyBlue;
+                            width: 100%;
+                            gap: 4px;
+
+                            @include sm-laptop-screen {
+                                padding: 18px;
+                            }
+                        }
+                    }
+                }
+
+                .tagBoxsWrapper {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 8px;
+
+                    &.tagBoxsWrapperCol {
+                        display: flex;
+                        flex-wrap: wrap;
+                        height: 100%;
+
+                        .tagBoxs {
+                            @include df-vc;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            flex: 1;
+                            height: auto;
+                            text-align: center;
+
+                            @include sm-mini-screen {
+                                flex: auto;
+                                width: 49%;
+                            }
+
+                            @include mini-screen {
+                                flex: 1;
+                            }
+
+                            @include mobile-view {
+                                width: 100%;
+                            }
+
+                            svg {
+                                margin-bottom: 11px;
+                            }
+                        }
+                    }
+
+                    .tagBoxs {
+                        &:last-child {
+                            &:nth-child(odd) {
+                                grid-column: span 2;
+                            }
+                        }
+                    }
+                }
+
+                .largBox {
+                    width: 70%;
+
+                    .hightBox {
+                        height: 100%;
+                    }
+
+                    @include mini-screen {
+                        width: 100%;
+                    }
+
+                    .smlclipBoxes {
+                        .bottomLine {
+                            @include text(16px, 26px, 700);
+                            color: var(--darkNavy);
+                        }
+                    }
+                }
+
+                .smallBox {
+                    width: 30%;
+
+                    .hightBox {
+                        height: 100%;
+                        gap: 19px;
+                        display: flex;
+                        flex-direction: column;
+
+                        &.singleHightBox {
+                            .cardBox {
+                                height: 100%;
+
+                                .tagBoxsWrapper {
+                                    display: flex;
+                                    flex-wrap: wrap;
+
+                                    .centeredTags {
+                                        flex: 48%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @include mini-screen {
+                        width: 100%;
+                    }
+
+                    .cardBox {
+                        padding: 20px 25px;
+
+                        &:first-child {
+                            height: 55%;
+                            min-height: 357px;
+                        }
+
+                        &:last-child {
+                            height: 45%;
+                        }
+
+                        @include sm-laptop-screen {
+                            padding: 20px;
+                        }
+
+                        // &:not(:last-child) {
+                        //     margin-bottom: 19px;
+                        // }
+
+                        .upgradeBtncta {
+                            background-color: $navyBlue;
+                            color: $white;
+                            @include df-c-c;
+                            @include text(14px, 21px, 700);
+                            padding: 12px 10px;
+                            border-radius: 7px;
+                            border-color: $navyBlue;
+                            width: 100%;
+                            gap: 4px;
+                            margin-bottom: 10px;
+
+                            @include sm-laptop-screen {
+                                padding: 9px 5px;
+                            }
+                        }
+                    }
+                }
+
+                .graphWrapper {
+                    .progressbarRound {
+                        max-width: 127px;
+                    }
+
+                    .innerGraphWrps {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        position: relative;
+                        width: 100%;
+
+                        .lowerBox {
+                            @include df-c-sb;
+                            justify-content: space-around;
+                            width: 100%;
+                            max-width: 80%;
+                            padding-top: 90px;
+
+                            @include mobile-view {
+                                max-width: 90%;
+                            }
+                        }
+
+                        .dottedLines {
+                            position: absolute;
+                            width: 100%;
+                            height: 300px;
+                            pointer-events: none;
+
+                            line {
+                                stroke: #d3d3d3;
+                                stroke-dasharray: 4; // Creates the dotted effect
+                                stroke-width: 1.5px;
+                            }
+                        }
+                    }
+
+                    .horizontalProgressWrapper {
+                        margin-top: 40px;
+
+                        .labelWrapper {
+                            @include df-c-sb;
+                            margin-bottom: 16px;
+
+                            span {
+                                @include text(14px, 21px, 700);
+                                color: var(--darkNavy);
+                            }
+                        }
+
+                        .horizontalProgressBar {
+                            .progress-bar {
+                                background-color: #00D470 !important;
+                                /* Filled color */
+                            }
+                        }
+                    }
+                }
+
+                .titleLineWrapper {
+                    @include df-c-sb;
+                    margin-bottom: 30px;
+
+                    .titleLine {
+                        margin: 0;
+                    }
+
+                    .legandsWrapperMain {
+                        display: flex;
+                        align-items: center;
+
+                        .legandsWrapper {
+                            display: flex;
+                            gap: 8px;
+
+                            .legands {
+                                border: 1px solid $gray_1;
+                                border-radius: 8px;
+                                padding: 8px 10px 8px 22px;
+                                position: relative;
+                                @include text(14px, 21px, 400);
+                                color: var(--darkNavy);
+                                height: 26px;
+                                display: flex;
+                                align-items: center;
+
+                                &::before {
+                                    content: '';
+                                    background-color: $green;
+                                    height: 6px;
+                                    width: 6px;
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 10px;
+                                    transform: translateY(-50%);
+                                }
+
+                                &.green {
+                                    &::before {
+                                        background-color: $green;
+                                    }
+                                }
+
+                                &.blue {
+                                    &::before {
+                                        background-color: $navyBlue;
+                                    }
+                                }
+
+                                &.cyne {
+                                    &::before {
+                                        background-color: $litecyne;
+                                    }
+                                }
+
+                                &.red {
+                                    &::before {
+                                        background-color: $red;
+                                    }
+                                }
+                            }
+                        }
+
+                        .dropdown {
+                            position: relative;
+                            border: 1px solid $gray_1;
+                            border-radius: 5px;
+                            background-color: $white;
+                            height: 50px;
+                            margin-left: 20px;
+
+                            .dropdownButton {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                width: 100%;
+                                padding: 13px 15px;
+                                background: none;
+                                border: none;
+                                @include text(14px, 21px, 700);
+                                color: $dark;
+                                cursor: pointer;
+                                border-radius: 8px;
+                                gap: 10px;
+
+                                &:focus {
+                                    outline: none;
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+
+                        .icon {
+                            transition: transform 0.3s ease;
+                        }
+
+                        .rotate {
+                            transform: rotate(180deg);
+                        }
+
+                        .dropdownMenu {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            right: 0;
+                            border: 1px solid $gray_1;
+                            border-radius: 5px;
+                            background-color: $white;
+                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                            z-index: 10;
+                            margin-top: 8px;
+                            padding: 0;
+                            list-style: none;
+                        }
+
+                        .dropdownItem {
+                            padding: 8px 10px;
+                            @include text(14px, 21px, 400);
+                            color: $dark;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: $gray_1;
+                            }
+                        }
+                    }
+                }
+
+                .statusWrapperMain {
+                    .statusUpper {
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 20px;
+
+                        @include sm-laptop-screen {
+                            flex-direction: column;
+                            gap: 12px;
+                        }
+
+                        .leftBox {
+                            display: flex;
+                            gap: 5px;
+                            width: 50%;
+                            justify-content: space-between;
+
+                            @include sm-laptop-screen {
+                                width: 100%;
+                            }
+
+                            .innerL {
+                                display: flex;
+                                flex-direction: column;
+
+                                .labelSpan {
+                                    @include text(14px, 21px, 400);
+                                    color: $gray_2;
+                                }
+
+                                .txtSpan {
+                                    @include text(16px, 24px, 700);
+                                    color: var(--darkNavy);
+
+                                    &:not(:last-child) {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+
+                            .innerR {
+                                display: flex;
+                            }
+                        }
+
+                        .rightBox {
+                            display: flex;
+                            width: 50%;
+                            gap: 10px;
+
+                            @include sm-laptop-screen {
+                                width: 100%;
+                            }
+
+                            .innerBoxes {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                border: 1px solid $gray_1;
+                                border-radius: 10px;
+                                padding: 18px;
+                                width: 100%;
+                                gap: 10px;
+
+                                @include sm-laptop-screen {
+                                    padding: 12px;
+                                    gap: 6px;
+                                }
+
+                                span {
+                                    @include text(14px, 21px, 400);
+                                    color: $gray_2;
+
+                                    &.bolder {
+                                        @include text(16px, 24px, 700);
+                                        color: var(--darkNavy);
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .statuslower {
+                        margin-top: 20px;
+                        padding-top: 20px;
+                        border-top: 1px solid $gray_1;
+
+                        .prgWrps {
+                            &:not(:last-child) {
+                                margin-bottom: 18px;
+
+                                @include sm-laptop-screen {
+                                    margin-bottom: 10px;
+                                }
+                            }
+
+                            .labelWrapper {
+                                @include df-c-sb;
+                                margin-bottom: 10px;
+
+                                @include sm-laptop-screen {
+                                    margin-bottom: 8px;
+                                }
+
+                                span {
+                                    @include text(14px, 21px, 700);
+                                    color: var(--darkNavy);
+                                }
+                            }
+
+                            span {
+                                @include text(14px, 21px, 400);
+                                color: $gray_2;
+                                margin-top: 10px;
+                                display: flex;
+
+                                @include sm-laptop-screen {
+                                    margin-top: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .cardBoxNoPadding {
+                    padding: 0;
+
+                    .tabUl {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+
+                        .tabLi {
+                            padding: 24px;
+                            @include text(16px, 24px, 700);
+                            color: var(--darkNavy);
+                            @include df-c-sb;
+
+                            @include sm-laptop-screen {
+                                padding: 16px;
+                                @include text(14px, 21px, 700);
+                            }
+
+                            &.tabLiTitle {
+                                background-color: $white_2;
+                                padding: 22px 24px;
+
+                                @include sm-laptop-screen {
+                                    padding: 14px 16px;
+                                }
+                            }
+
+                            &:not(:first-child) {
+                                border-top: 1px solid $gray_1;
+                            }
+
+                            &:last-child {
+                                border-bottom: 1px solid $gray_1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

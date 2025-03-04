@@ -1,0 +1,59 @@
+.skeleton {
+  background-color: #e4e5e7 !important;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: calc(100% + 45px);
+    background-image: url('./../../../assets/images/skeleton/stripe5.png');
+    background-size: 100px 100%;
+    background-repeat: no-repeat;
+    transform: rotate(32deg);
+    background-position: center;
+    animation: slideLtr 1s ease infinite;
+    position: absolute;
+    left: 0%;
+    top: -20px;
+  }
+
+  &.rtl::before {
+    transform: rotate(-32deg);
+    animation: slideRtl 1s ease infinite;
+  }
+}
+
+.skeletonWrap {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  background: #ffffff !important;
+}
+
+@keyframes shine {
+  to {
+    background-position: right -100px top 0;
+  }
+}
+
+@keyframes slideLtr {
+  from {
+    left: -50%;
+  }
+
+  to {
+    left: 55%;
+  }
+}
+
+@keyframes slideRtl {
+  from {
+    left: 55%;
+  }
+
+  to {
+    left: -55%;
+  }
+}

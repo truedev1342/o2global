@@ -1,0 +1,108 @@
+@import '@/styles/variables';
+
+.containerBox {
+    position: relative;
+    width: 127px;
+    height: 127px;
+    z-index: 9;
+
+    @include sm-laptop-screen {
+        width: 107px;
+        height: 107px;
+    }
+}
+
+.containerBoxLg {
+    position: relative;
+    width: 157px;
+    height: 157px;
+    z-index: 9;
+
+    @include sm-laptop-screen {
+        width: 127px;
+        height: 127px;
+    }
+    @include mobile-view {
+        width: 77px;
+        height: 77px;
+    }
+}
+
+.svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.background {
+    fill: $white;
+    stroke: #f0f0f0;
+    stroke-width: 3;
+
+    &.backgroundLg {
+        stroke-width: 5;
+    }
+}
+
+.progress {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 0, 100;
+    transition: stroke-dasharray 0.3s ease;
+
+    &.progressLarge {
+        stroke-width: 5;
+    }
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    &.textsm {
+        p {
+            &.percentage {
+                @include text(24px, 28px, 700);
+                letter-spacing: -0.02em;
+
+                @include sm-laptop-screen {
+                    @include text(18px, 26px, 700);
+                }
+                
+                @include mobile-view {
+                    @include text(14px, 20px, 700);
+                }
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+        @include text(20px, 24px, 700);
+        color:  var(--darkNavy);
+
+        @include sm-laptop-screen {
+            @include text(16px, 22px, 700);
+        }
+
+        @include mobile-view {
+            @include text(14px, 20px, 700);
+        }
+
+        &.percentage {
+            @include text(18px, 27px, 400);
+
+            @include sm-laptop-screen {
+                @include text(14px, 22px, 400);
+            }
+
+            @include mobile-view {
+                @include text(12px, 20px, 400);
+            }
+        }
+    }
+}

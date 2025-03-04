@@ -1,0 +1,224 @@
+@import '@/styles/variables';
+
+.mainBox {
+    position: relative;
+    padding: 30px;
+
+    @include sm-laptop-screen {
+        padding: 20px;
+    }
+
+    .walletBalanceBox {
+        margin-top: 20px;
+
+        .cardBoxWrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+
+            @include sm-laptop-screen {
+                gap: 20px;
+            }
+
+            .dashCard {
+                border: 1px solid $gray_1;
+                border-radius: 24px;
+                padding: 20px;
+                @include df-c-sb;
+                background-color: $white;
+
+                .leftSide {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    .valueLine {
+                        @include text(24px, 36px, 700);
+                        font-family: var(--font-Arial);
+                        color: $darkNavy;
+                    }
+
+                    .titleLine {
+                        @include text(16px, 24px, 300);
+                        font-family: var(--font-Arial);
+                        color: $gray_2;
+                    }
+                }
+            }
+        }
+
+        .chartContainer {
+            border: 1px solid $gray_1;
+            box-shadow: 0px 4px 20px 0px #0000001A;
+            border-radius: 24px;
+            padding: 20px;
+
+            .chartWrapper {
+                height: 300px;
+            }
+        }
+
+        .earningTable {
+            border: 1px solid $gray_1;
+            box-shadow: 0px 4px 20px 0px #0000001A;
+            border-radius: 24px;
+            padding: 20px;
+            margin-top: 20px;
+
+            .tableTitle {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .transferCreditBox {
+        margin-top: 20px;
+        border: 1px solid $gray_1;
+        box-shadow: 0px 4px 20px 0px #0000001A;
+        border-radius: 24px;
+        padding: 20px;
+
+        h5 {
+            @include text(24px, 28px, 700);
+            font-family: var(--font-Lato);
+            letter-spacing: -0.02em;
+            margin-bottom: 5px;
+        }
+
+        .subTitle {
+            @include text(12px, 18px, 300);
+            color: $gray_2;
+            margin-bottom: 5px;
+            display: flex;
+        }
+
+        .paraBox {
+            @include text(16px, 24px, 400);
+            margin: 0;
+            font-family: var(--font-arial);
+            background-color: rgba(22, 79, 242, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            color: $darkNavy;
+            margin-bottom: 30px;
+
+            @include sm-laptop-screen {
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+
+            svg {
+                margin-right: 5px;
+
+                @include mobile-sm-view {
+                    min-width: 20px;
+                }
+            }
+        }
+
+        .creditForm {
+            max-width: 500px;
+
+            .rowLines {
+                margin-bottom: 15px;
+
+                .creditNote {
+                    color: $red_2;
+                }
+            }
+
+            .formBtn {
+                height: 50px;
+                border-radius: 7px;
+                @include df-vc;
+            }
+        }
+    }
+
+    .tableBoxMain {
+        padding: 20px;
+
+        @include tab-max {
+            padding: 0;
+        }
+
+        .tableDataBox {
+            margin: 10px 0;
+            overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .cardBoxWrapper {
+            display: flex;
+            width: 100%;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+
+            @include sm-laptop-screen {
+                gap: 12px;
+            }
+
+            .dashCard {
+                width: 24%;
+                border-radius: 8px;
+                box-shadow: 0px 4px 20px 0px #0000001A;
+                padding: 30px;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+                position: relative;
+                overflow: hidden;
+
+                @include sm-laptop-screen {
+                    padding: 30px 20px;
+                }
+
+                @include mini-screen {
+                    width: 48%;
+                }
+
+                @include mobile-sm-view {
+                    width: 100%;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 6px;
+                    height: 100%;
+                    background-color: $navyBlue;
+                }
+            }
+        }
+    }
+
+    .statusBoxText {
+        background-color: rgba(0, 212, 112, 0.5);
+        padding: 5px 10px;
+        border-radius: 7px;
+        @include text(12px, 18px, 300);
+
+        &.pendingText{
+            background-color: $orangeLeg;
+        }
+    }
+
+    .headBar {
+        @include df-c-sb;
+        margin-bottom: 5px;
+
+        button {
+            padding: 0;
+        }
+
+        .tableTitle {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.scrollBar {
+  width: 6px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  transition: 0.4s ease;
+
+  .scrollThumb {
+    position: absolute;
+    top: 0;
+    background: #9e9e9e;
+    width: 100%;
+    border-radius: 5px;
+    right: 1px;
+    cursor: grab;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    transition: opacity 0.3s ease-in-out;
+
+    &.hidden {
+      opacity: 0;
+      transition: 0.4s ease;
+    }
+
+    [dir='rtl'] & {
+      left: 1px !important;
+      right: inherit !important;
+    }
+  }
+
+  [dir='rtl'] & {
+    left: 0 !important;
+    right: inherit !important;
+  }
+}
+
+.scrollBarContainer {
+  .scrollHost {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+  }
+}

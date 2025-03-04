@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
+    .invoice-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #007bff;
+    }
+    .section {
+      margin: 20px 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .info-table td {
+      padding: 8px;
+      vertical-align: top;
+    }
+    .info-table tr td:first-child {
+      font-weight: bold;
+      text-align: left;
+    }
+    .info-table tr td:last-child {
+      text-align: right;
+    }
+    .order-details th, .order-details td {
+      padding: 10px;
+      text-align: left;
+    }
+    .order-details th {
+      background-color: #f2f2f2;
+    }
+    .order-summary {
+      text-align: right;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice-container">
+    <h1>Invoice</h1>
+    <h2>O2 Global USA LLC</h2>
+    <p style="text-align: center;">
+      6310 Town Square<br>
+      Ste. 250<br>
+      Alpharetta, GA, 30005
+    </p>
+
+    <div class="section">
+      <div class="section-title">Order Info</div>
+      <table class="info-table">
+        <tr><td>Order Number:</td><td>91175564</td></tr>
+        <tr><td>Order Date:</td><td>2024-10-25 09:30:46</td></tr>
+        <tr><td>PV:</td><td>400</td></tr>
+        <tr><td>BV:</td><td>400</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">User Info</div>
+      <table class="info-table">
+        <tr><td>User ID:</td><td>319025</td></tr>
+        <tr><td>First Name:</td><td>Madison</td></tr>
+        <tr><td>Last Name:</td><td>Baker</td></tr>
+        <tr><td>VAT Number:</td><td>552292024</td></tr>
+        <tr><td>E-Mail:</td><td>madisonnow7@gmail.com</td></tr>
+        <tr><td>Phone:</td><td>5056088039</td></tr>
+        <tr><td>Username:</td><td>travel</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Order Details</div>
+      <table class="order-details" width="100%">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Line Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First 500 Club</td>
+            <td>1</td>
+            <td>$400.04</td>
+            <td>$400.04</td>
+          </tr>
+          <tr>
+            <td>Technology Fee</td>
+            <td>1</td>
+            <td>$99.95</td>
+            <td>$99.95</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="order-summary">
+        <p>Sales Tax: $0.00</p>
+        <p><strong>Order Total: $499.99</strong></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Billing Info</div>
+      <table class="info-table">
+        <tr><td>Address Line 1:</td><td>1157 Barbados Court</td></tr>
+        <tr><td>Address Line 2 (optional):</td><td>-</td></tr>
+        <tr><td>City:</td><td>Manteca</td></tr>
+        <tr><td>State/Province:</td><td>California</td></tr>
+        <tr><td>ZIP/Postal Code:</td><td>95337</td></tr>
+        <tr><td>Country:</td><td>United States</td></tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

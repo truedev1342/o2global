@@ -1,0 +1,673 @@
+// $roobertProFont: var(--font-roobertProFont);
+$latoFont: var(--font-lato);
+$arialFont: var(--font-arial);
+$robotoFont: var(--font-roboto);
+
+/*------------- color variables ------------*/
+$primary-color_100: var(--primary-color-100);
+$primary-color_80: var(--primary-color-080);
+$primary-color_60: var(--primary-color-060);
+$primary-color_40: var(--primary-color-040);
+$primary-color_30: var(--primary-color-030);
+$primary-color_20: var(--primary-color-020);
+$secondary-color_100: var(--secondary-color-100);
+$secondary-color_80: var(--secondary-color-080);
+$secondary-color_60: var(--secondary-color-060);
+$secondary-color_40: var(--secondary-color-040);
+$secondary-color_20: var(--secondary-color-020);
+$primary-boxShadow_100: var(--boxShadow-100);
+$primary: #000D37;
+$white: #ffffff;
+$white_2: #F7F7F7;
+$white_3: #EFF3F6;
+$white_4: #fafafa;
+$white_5: #F5F5F5;
+$white_6: #f1f5f9;
+$black: #000000;
+$black_2: #1c1a1a;
+$black_3: #414141;
+$dark: #111111;
+$dark_1: #000619;
+$dark_2: #5b5b5b;
+$dark_3: #929292;
+$dark_4: #3F4254;
+$dark_5: #5E6278;
+$gray_1: #E7E7E7;
+$gray_2: #A0A0A0;
+$gray_3: #F3F3F3;
+$gray_4: #595959;
+$gray_5: #898989;
+$gray_6: #B8B8B8;
+$gray_7: #D0D0D0;
+$gray_8: #A1A5B7;
+$gray_9: #F1F1F2;
+$gray_10: #E1E3EA;
+
+$lightBlue: rgba(194, 208, 255, 0.7);
+$lightBlue_2: #081747;
+$lightBlue_3: #EAEFFD;
+$darkNavy: #0A1A3B;
+$darkNavy2: #354052;
+$notificationNavy: #d6e5fc;
+$summaryBg: #EEF2F5;
+
+$orangeVer: #FF5630;
+$cyne: #01E0FE;
+$green: #00D470;
+$navyBlue: #164FF2;
+$navyBlue2: #174FF2;
+$litecyne: #14C2F3;
+$litecyne_2: #09b7ef;
+$litecyne_3: #E5F6FE;
+$litecyne_4: #BDD7E4;
+$red: #FF0000;
+$redLightBg: #FFF1F0;
+$red_2: #FF1E1E;
+$red_3: #F1416C;
+$redText: #451004;
+$orangeLeg: #FF9900;
+$greenBorder: #C7DDB9;
+$greenBg: #F8FCEC;
+$limeGreen: #4EC31C;
+$packageGreen: #39CD6C;
+$packageBlue: #2563EB;
+$packagePurple: #7239EA;
+
+
+$darkBg: #121212;
+$darkBg2: #231f1f;
+
+$headerTextTable: #000;
+$tablePlaceHolder: #bfbfbf;
+
+$infoBg: #e6f7ff;
+$infoBorder: #91d5ff;
+$infoSvg: #1890ff;
+
+/*------------- border variables ------------*/
+$navBorderActive: #164FF2;
+
+/*------------- border variables ------------*/
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+/*----------------- responsive variations -----------------*/
+$laptop-screen: 1980px;
+$mac-laptop-screen: 1792px;
+$sm-laptop-screen: 1600px;
+$xssm-laptop-screen: 1440px;
+$xsm-laptop-screen: 1400px;
+$sm-mini-screen: 1299px;
+$mini-screen: 1199px;
+$tab-max-high: 1099px;
+$tab-max: 1024px;
+$ipad-view: 991px;
+$ipad-sm-view: 900px;
+$small-ipad-view: 800px;
+$tab-view: 767px;
+$tab-sm-view: 650px;
+$mobile-view: 575px;
+$mobile-md-view: 530px;
+$mobile-sm-view: 480px;
+$mobile-ssm-view: 430px;
+$mobile-xsm-view: 370px;
+$mobile-xxsm-view: 350px;
+$mobile-xxxsm-view: 330px;
+$landscape-sm: 320px;
+$landscape-lg: 550px;
+$landscape_xlg: 767px;
+
+@mixin laptop-screen {
+  @media (max-width: #{$laptop-screen}) {
+    @content;
+  }
+}
+
+@mixin mac-laptop-screen {
+  @media (max-width: #{$mac-laptop-screen}) {
+    @content;
+  }
+}
+
+@mixin sm-laptop-screen {
+  @media (max-width: #{$sm-laptop-screen}) {
+    @content;
+  }
+}
+
+@mixin xssm-laptop-screen {
+  @media (max-width: #{$xssm-laptop-screen}) {
+    @content;
+  }
+}
+
+@mixin xsm-laptop-screen {
+  @media (max-width: #{$xsm-laptop-screen}) {
+    @content;
+  }
+}
+
+@mixin sm-mini-screen {
+  @media (max-width:#{$sm-mini-screen}) {
+    @content;
+  }
+}
+
+@mixin mini-screen {
+  @media (max-width: #{$mini-screen}) {
+    @content;
+  }
+}
+
+@mixin tab-max-high {
+  @media (max-width: #{$tab-max-high}) {
+    @content;
+  }
+}
+
+@mixin tab-max {
+  @media (max-width: #{$tab-max}) {
+    @content;
+  }
+}
+
+@mixin ipad-view {
+  @media (max-width: #{$ipad-view}) {
+    @content;
+  }
+}
+
+@mixin ipad-sm-view {
+  @media (max-width: #{$ipad-sm-view}) {
+    @content;
+  }
+}
+
+@mixin small-ipad-view {
+  @media (max-width: #{$small-ipad-view}) {
+    @content;
+  }
+}
+
+@mixin tab-view {
+  @media (max-width: #{$tab-view}) {
+    @content;
+  }
+}
+
+@mixin tab-sm-view {
+  @media (max-width: #{$tab-sm-view}) {
+    @content;
+  }
+}
+
+@mixin mobile-view {
+  @media (max-width: #{$mobile-view}) {
+    @content;
+  }
+}
+
+@mixin mobile-md-view {
+  @media (max-width: #{$mobile-md-view}) {
+    @content;
+  }
+}
+
+@mixin mobile-sm-view {
+  @media (max-width: #{$mobile-sm-view}) {
+    @content;
+  }
+}
+
+@mixin mobile-ssm-view {
+  @media (max-width: #{$mobile-ssm-view}) {
+    @content;
+  }
+}
+
+@mixin mobile-xsm-view {
+  @media (max-width: #{$mobile-xsm-view}) {
+    @content;
+  }
+}
+
+@mixin mobile-xxsm-view {
+  @media (max-width: #{$mobile-xxsm-view}) {
+    @content;
+  }
+}
+
+@mixin mobile-xxxsm-view {
+  @media (max-width: #{$mobile-xxxsm-view}) {
+    @content;
+  }
+}
+
+@mixin landscape-sm {
+  @media (min-height: #{$landscape-sm}) {
+    @content;
+  }
+}
+
+@mixin landscape-lg {
+  @media (max-height: #{$landscape-lg}) {
+    @content;
+  }
+}
+
+@mixin landscape_xlg {
+  @media (max-height: #{$landscape_xlg}) {
+    @content;
+  }
+}
+
+/*----------------- responsive variations -----------------*/
+
+@mixin text($size: null, $lineHeight: null, $weight: null) {
+  @if $size != null {
+    font-size: $size;
+  }
+  
+  @if $lineHeight != null {
+    line-height: $lineHeight;
+  }
+  
+  @if $weight != null {
+    font-weight: $weight;
+  }
+}
+
+/*----------------- mixin variations -----------------*/
+
+@mixin headOne {
+  font-size: 2.645rem;
+  line-height: normal;
+  font-weight: 500;
+
+  @include ipad-view {
+    font-size: 2rem;
+  }
+
+  @include mobile-view {
+    font-size: 1.7rem;
+  }
+}
+
+@mixin headTwo {
+  font-size: 4.4rem;
+  font-weight: 500;
+  line-height: 1.1;
+
+  @include ipad-view {
+    font-size: 3.4rem !important;
+  }
+
+  @include mobile-view {
+    font-size: 2.4rem !important;
+  }
+}
+
+@mixin headThree {
+  font-size: 1.68rem;
+  line-height: normal;
+  font-weight: 500;
+
+  @include mini-screen {
+    font-size: 1.5rem;
+  }
+
+  @include tab-view {
+    font-size: 1.25rem;
+  }
+
+  @include mobile-view {
+    font-size: 1rem;
+  }
+}
+
+@mixin headFour {
+  font-size: 1.296rem;
+  line-height: normal;
+  font-weight: 500;
+
+  @include tab-view {
+    font-size: 1.12rem;
+  }
+
+  @include mobile-view {
+    font-size: 1rem;
+  }
+}
+
+@mixin quote_text {
+  font-size: 6rem;
+  line-height: 6rem;
+  font-weight: 600;
+
+  @include tab-view {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+}
+
+@mixin fw-100 {
+  font-weight: 100;
+}
+
+@mixin fw-200 {
+  font-weight: 200;
+}
+
+@mixin fw-300 {
+  font-weight: 300;
+}
+
+@mixin fw-400 {
+  font-weight: 400;
+}
+
+@mixin fw-500 {
+  font-weight: 500;
+}
+
+@mixin fw-600 {
+  font-weight: 600;
+}
+
+@mixin fw-700 {
+  font-weight: 700;
+}
+
+@mixin fw-800 {
+  font-weight: 800;
+}
+
+@mixin fw-900 {
+  font-weight: 800;
+}
+
+@mixin font-10 {
+  font-style: normal;
+  font-size: 1rem;
+}
+
+@mixin font-12 {
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+@mixin font-12-5 {
+  font-style: normal;
+  font-size: 1.25rem;
+}
+
+@mixin font-13 {
+  font-style: normal;
+  font-size: 1.3rem;
+}
+
+@mixin font-14 {
+  font-style: normal;
+  font-size: 1.4rem;
+}
+
+@mixin font-15 {
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+@mixin font-16 {
+  font-style: normal;
+  font-size: 1.6rem;
+}
+
+@mixin font-17 {
+  font-style: normal;
+  font-size: 1.75rem;
+}
+
+@mixin font-18 {
+  font-style: normal;
+  font-size: 1.8rem;
+}
+
+@mixin font-19 {
+  font-style: normal;
+  font-size: 1.9rem;
+}
+
+@mixin font-20 {
+  font-style: normal;
+  font-size: 2rem;
+}
+
+@mixin font-21 {
+  font-style: normal;
+  font-size: 2.1rem;
+}
+
+@mixin font-22 {
+  font-style: normal;
+  font-size: 2.2rem;
+}
+
+@mixin font-24 {
+  font-style: normal;
+  font-size: 2.4rem;
+}
+
+@mixin font-25 {
+  font-style: normal;
+  font-size: 2.5rem;
+}
+
+@mixin font-26 {
+  font-style: normal;
+  font-size: 2.6rem;
+}
+
+@mixin font-28 {
+  font-style: normal;
+  font-size: 2.8rem;
+}
+
+@mixin font-30 {
+  font-style: normal;
+  font-size: 3rem;
+}
+
+@mixin font-32 {
+  font-style: normal;
+  font-size: 3.2rem;
+}
+
+@mixin font-35 {
+  font-style: normal;
+  font-size: 3.5rem;
+}
+
+@mixin font-36 {
+  font-style: normal;
+  font-size: 3.5rem;
+}
+
+@mixin font-38 {
+  font-style: normal;
+  font-size: 3.8rem;
+}
+
+@mixin font-40 {
+  font-style: normal;
+  font-size: 4rem;
+}
+
+@mixin font-42 {
+  font-style: normal;
+  font-size: 4.2rem;
+}
+
+@mixin font-44 {
+  font-style: normal;
+  font-size: 4.4rem;
+}
+
+@mixin font-45 {
+  font-style: normal;
+  font-size: 4.5rem;
+}
+
+@mixin font-48 {
+  font-style: normal;
+  font-size: 4.8rem;
+}
+
+@mixin font-50 {
+  font-style: normal;
+  font-size: 5rem;
+}
+
+@mixin font-53 {
+  font-style: normal;
+  font-size: 5.3rem;
+}
+
+@mixin font-60 {
+  font-style: normal;
+  font-size: 6rem;
+}
+
+@mixin font-64 {
+  font-style: normal;
+  font-size: 6.4rem;
+}
+
+@mixin font-72 {
+  font-style: normal;
+  font-size: 7rem;
+}
+
+@mixin lh-100 {
+  line-height: 1;
+}
+
+@mixin lh-110 {
+  line-height: 1.1;
+}
+
+@mixin lh-120 {
+  line-height: 1.2;
+}
+
+@mixin lh-125 {
+  line-height: 1.25;
+}
+
+@mixin lh-133 {
+  line-height: 1.33;
+}
+
+@mixin lh-140 {
+  line-height: 1.4;
+}
+
+@mixin lh-150 {
+  line-height: 1.5;
+}
+
+@mixin lh-165 {
+  line-height: 1.65;
+}
+
+@mixin lh-175 {
+  line-height: 1.75;
+}
+
+@mixin lh-180 {
+  line-height: 1.8;
+}
+
+@mixin lh-190 {
+  line-height: 1.9;
+}
+
+@mixin lh-200 {
+  line-height: 2;
+}
+
+@mixin lh-225 {
+  line-height: 2.25;
+}
+
+@mixin lh-250 {
+  line-height: 2.5;
+}
+
+@mixin rounded-pill {
+  border-radius: 500rem;
+}
+
+@mixin dif-vc {
+  display: inline-flex;
+  align-items: center;
+}
+
+@mixin dif-hc {
+  display: inline-flex;
+  justify-content: center;
+}
+
+@mixin dif-c-c {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin df-vc {
+  display: flex;
+  align-items: center;
+}
+
+@mixin df-hc {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin df-c-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin df-c-sb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin df-s-sb {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@mixin df-e-sb {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+@mixin df-s-s {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@mixin text-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/*----------------- mixin variations -----------------*/

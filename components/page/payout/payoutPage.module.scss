@@ -1,0 +1,219 @@
+@import '@/styles/variables';
+
+.mainBox {
+    position: relative;
+    padding: 50px;
+
+    @include sm-laptop-screen {
+        padding: 20px;
+    }
+
+    .commonBoxCard {
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+        border: 1px solid $gray_1;
+        border-radius: 24px;
+        padding: 60px 30px;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+
+            @include sm-laptop-screen {
+                padding: 20px;
+            }
+        }
+
+        @include sm-laptop-screen {
+            padding: 30px;
+        }
+
+        @include mini-screen {
+            padding: 20px;
+        }
+
+        h2 {
+            @include text(24px, 28px, 700);
+            margin-bottom: 30px;
+            @include df-vc;
+            letter-spacing: -0.02em;
+            color: $darkNavy;
+            font-family: var(--font-lato);
+
+            @include sm-laptop-screen {
+                margin-bottom: 20px;
+            }
+
+            .badgeBox {
+                @include text(14px, 21px, 400);
+                color: $white;
+                font-family: var(--font-arial);
+                letter-spacing: normal;
+                margin-left: 10px;
+                background-color: $green !important;
+                padding: 8px;
+                height: 26px;
+                border-radius: 5px;
+                @include df-vc;
+            }
+        }
+
+        p {
+            @include text(14px, 21px, 300);
+            font-family: var(--font-arial);
+            color: $gray_2;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .btnWrperBox {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+
+            .commonBtn {
+                border-color: $darkNavy;
+                color: $darkNavy;
+                @include text(14px, 21px, 700);
+                font-family: var(--font-arial);
+                padding: 13px 15px;
+                border-radius: 7px;
+
+                &:hover {
+                    background-color: $navyBlue;
+                    border-color: $navyBlue;
+                    color: $white;
+                }
+            }
+        }
+
+        .formGroupBox {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            .dropDownBtn {
+                background-color: transparent !important;
+                color: $black;
+                @include df-c-sb;
+                height: 50px;
+                border-color: $gray_1;
+                border-radius: 7px;
+                padding: 12px;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            .dropDownOuter {
+                position: absolute;
+                z-index: 9;
+                background-color: $white;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                transform: translate(0, 80px);
+                box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
+                width: 100%;
+                max-width: 400px;
+                border-radius: 8px;
+
+                .dropUl {
+                    list-style: none;
+                    padding: 2px;
+                    margin: 0;
+                    max-height: 280px;
+                    overflow: auto;
+
+                    &::-webkit-scrollbar-track {
+                        -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+                        background-color: transparent;
+                    }
+
+                    &::-webkit-scrollbar {
+                        width: 4px;
+                        background-color: transparent;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: transparent;
+                        border-radius: 8px;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    .dropItem {
+                        &:not(:last-child) {
+                            border-bottom: 1px solid $gray_1;
+                        }
+
+                        .itemLink {
+                            color: $darkNavy2;
+                            text-decoration: none;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 10px;
+
+                            &:hover {
+                                background-color: $gray_1;
+                            }
+
+                            .titleB {
+                                @include text(14px, 20px, 400);
+                                font-family: var(--font-roboto);
+                                margin-bottom: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .fullWbutton {
+            width: 100%;
+            margin-top: 25px;
+            height: 50px;
+            border-radius: 7px;
+            padding: 12px;
+            max-width: 400px;
+        }
+
+        .bottomBox {
+            @include df-c-sb;
+            margin-top: 20px;
+
+            @include tab-view {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .leftBox {
+                display: flex;
+                flex-direction: column;
+
+                .radioBtn {
+                    cursor: pointer;
+
+                    input,
+                    label {
+                        cursor: pointer;
+
+                    }
+                }
+            }
+
+            .rightBox {
+                @include tab-view {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .smBtn {
+                    max-width: 400px;
+
+                    @include tab-view {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

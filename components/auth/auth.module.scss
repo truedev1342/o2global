@@ -1,0 +1,731 @@
+@import '@/styles/variables';
+
+.authBox {
+    display: flex;
+    min-height: 100vh;
+
+    .imgBox {
+        width: 60%;
+
+        @include tab-view {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .formBox {
+        width: 40%;
+        padding: 25px;
+        @include df-c-c;
+        flex-direction: column;
+        gap: 20px;
+
+        @include tab-view {
+            width: 100%;
+            padding: 18px;
+        }
+
+        .logoWrps {
+            margin-bottom: 50px;
+        }
+
+        .formWrapper {
+            width: 100%;
+            @include df-c-c;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+        }
+
+        h2 {
+            @include text(30px, 24px, 500);
+            font-family: var(--font-lato);
+            margin-bottom: 5px;
+        }
+
+        p {
+            @include text(20px, 24px, 400);
+            font-family: var(--font-lato);
+            color: $gray_4;
+            margin-bottom: 35px;
+        }
+
+        form {
+            width: 100%;
+            padding: 25px;
+
+            input {
+                width: 100%;
+                height: 44px;
+                border-radius: 7px;
+                border: 1px solid $gray_1;
+                padding: 0 15px;
+                margin-bottom: 20px;
+            }
+
+            .forgotLink {
+                display: flex;
+                justify-content: flex-end;
+                text-decoration: none;
+                @include text(16px, 24px, 300);
+                font-family: var(--font-lato);
+            }
+
+            .linkBtn {
+                text-decoration: none;
+                @include text(16px, 24px, 300);
+                font-family: var(--font-lato);
+            }
+
+            button {
+                height: 44px;
+                border-radius: 8px;
+                width: 100%;
+                margin-top: 20px;
+                @include df-c-c;
+            }
+        }
+    }
+
+    .authWrapper {
+        width: 100%;
+        padding: 50px;
+        background-image: url('/images/authbg.svg');
+
+        .referalBtn {
+            border-radius: 8px;
+        }
+    }
+
+    .signUpWrapper {
+        width: 100%;
+        background-image: url('/images/authbg.svg');
+        position: relative;
+
+        .bubbleWrpper {
+            background-image: url('/images/water-bubbles.svg');
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 3%;
+            background-repeat: no-repeat;
+            background-position: 0 -30%;
+
+            &.bubble2 {
+                background-position: 0 -10%;
+                transform: rotate(-180deg);
+            }
+        }
+
+        .containBoxWrps {
+            z-index: 9;
+            position: relative;
+            height: 100%;
+
+            .containBox {
+                height: 100%;
+
+                @include ipad-view {
+                    height: auto;
+                }
+            }
+        }
+
+        .headerBoxLine {
+            @include df-c-sb;
+            width: 100%;
+            padding: 25px 15px;
+            margin-bottom: 20px;
+
+            .linkBtn {
+                color: $white;
+                text-decoration: none;
+                @include text(16px, 24px, 400);
+                font-family: var(--font-lato);
+            }
+        }
+
+        .signUpBox {
+            padding: 30px;
+            background-color: $white;
+            border-radius: 24px;
+            border: 1px solid $gray_1;
+            box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.12);
+            // height: calc(100% - 180px);
+            min-height: calc(100vh - 180px);
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            @include tab-view {
+                padding: 15px;
+            }
+
+            .commonCol {
+                width: 33%;
+
+                @include ipad-view {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .commonCardBox {
+                border-radius: 25px;
+                padding: 35px;
+                background-color: $white_6;
+                border: none;
+                height: 100%;
+                margin: 0 20px;
+
+                @include mini-screen {
+                    padding: 20px;
+                    margin: 10px 0;
+                }
+
+                .cardBody {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 10px;
+                    position: relative;
+                    z-index: 9;
+                    padding: 0;
+
+                    .iconBox {
+                        background-color: rgba(37, 99, 235, 0.1);
+                        border-radius: 25px;
+                        padding: 10px;
+                        height: 65px;
+                        width: 65px;
+                        @include df-c-c;
+                        margin-bottom: 20px;
+                    }
+
+                    .cardTitle {
+                        @include text(22px, 32px, 500);
+                    }
+
+                    .cardText {
+                        @include text(16px, 24px, 400);
+                        font-family: var(--font-lato);
+                        color: $dark_4;
+                    }
+
+                    .btnWrpper {
+                        @include df-c-c;
+                        justify-content: flex-start;
+                        gap: 15px;
+                        margin-top: 30px;
+                    }
+
+                    .joinButton {
+                        border-radius: 8px;
+                        @include df-c-c;
+                        height: 50px;
+                    }
+                }
+
+                &.limitedCard {
+                    background: linear-gradient(112.14deg, #27C4F3 0%, #2265B0 100%);
+                    position: relative;
+                    color: $white;
+                    text-align: center;
+
+                    &::after {
+                        content: '';
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: url('/images/water-bubbles.svg');
+                        background-size: cover;
+                        background-position: center;
+                        position: absolute;
+                        opacity: 0.05;
+                    }
+
+                    .cardTitle {
+                        margin-top: 45px;
+                        @include text(34px, 42px, 600);
+                    }
+
+                    .cardText {
+                        color: $white;
+                    }
+                }
+            }
+
+            .fullFormBox {
+                display: flex;
+                gap: 15px;
+                width: 100%;
+                flex-direction: row;
+                position: relative;
+
+                @include ipad-view {
+                    flex-direction: column-reverse;
+                }
+
+                .formOuterWrapper {
+                    width: 100%;
+
+                    .formInnerBox {
+                        margin-bottom: 20px;
+
+                        .formHeader {
+                            margin-bottom: 20px;
+                            @include text(22px, 32px, 500);
+                            font-family: var(--font-lato);
+                        }
+
+                        input {
+
+                            &[type="text"],
+                            &[type="email"],
+                            &[type="password"],
+                            &[type="number"],
+                            &[type="date"],
+                            &[type="tel"] {
+                                height: 50px;
+                                border-radius: 7px;
+                                border: 1px solid $gray_1;
+                                @include text(16px, 24px, 300);
+                            }
+                        }
+
+                        .rowLines {
+                            @include tab-max-high {
+                                gap: 24px;
+                            }
+
+                            &:not(:last-child) {
+                                margin-bottom: 24px;
+                            }
+
+                            .wFullXsm {
+                                @include tab-max-high {
+                                    width: 100%;
+                                }
+                            }
+                        }
+
+                        .inputWithIcon {
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+
+                            .inputIcon {
+                                position: absolute;
+                                right: 20px;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .headlineCanvas {
+                            @include df-c-sb;
+                            gap: 10px;
+                            margin-bottom: 10px;
+                            color: $dark_5;
+                            @include text(16px, 20px, 400);
+                            font-family: var(--font-lato);
+
+                            .clearBtn {
+                                text-decoration: none;
+                                color: $dark_5;
+                                padding: 10px 15px;
+                                border-radius: 8px;
+                                @include text(14px, 20px, 400);
+                                @include df-c-c;
+                                gap: 5px;
+
+                                &:hover {
+                                    background-color: $lightBlue_3;
+                                }
+                            }
+                        }
+
+                        .signCanvas {
+                            border: 1px dotted $gray_1;
+                            border-radius: 8px;
+                            margin-bottom: 20px;
+
+                            svg {
+                                border-radius: 8px;
+                            }
+                        }
+
+                        .checkboxLabel {
+                            @include text(14px, 20px, 300);
+                            margin-bottom: 15px;
+                            width: 100%;
+                        }
+
+                        .infoText {
+                            @include text(14px, 20px, 300);
+                            color: $gray_8;
+                        }
+                    }
+
+                    .strengthIndicator {
+                        display: flex;
+                        gap: 10px;
+                        margin: 10px 0 5px;
+
+                        .strengthLine {
+                            height: 4px;
+                            flex: 1;
+                            background-color: $gray_10;
+                            border-radius: 4px;
+                        }
+
+                        .green {
+                            background-color: $packageGreen;
+                        }
+                    }
+
+                    .passwordRequirements {
+                        @include text(14px, 20px, 300);
+                        color: $gray_8;
+                        margin-bottom: 8px;
+                    }
+                }
+
+                .formRightWrapper {
+                    width: 100%;
+                    max-width: 350px;
+
+                    @include ipad-view {
+                        max-width: 100%;
+                    }
+
+                    .rightWraper {
+                        background-color: $white_6;
+                        padding: 20px;
+                        border-radius: 22px;
+                        margin-bottom: 20px;
+
+                        .packageDetails {
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+
+                    .conditionTxt {
+                        display: flex;
+                        margin-bottom: 10px;
+                        @include text(14px, 20px, 300);
+                        font-family: var(--font-lato);
+                        color: $gray_8;
+                    }
+                }
+            }
+
+            &.successBox {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+
+                .imgSuccess {
+                    @include mobile-sm-view {
+                        max-width: 180px;
+                    }
+                }
+
+                h1 {
+                    margin: 10px 0 5px;
+                    @include text(22px, 32px, 500);
+                    font-family: var(--font-lato);
+                }
+
+                p {
+                    margin-bottom: 5px;
+                    @include text(18px, 26px, 400);
+                    font-family: var(--font-lato);
+                    text-align: center;
+                }
+
+                .commonBtn {
+                    border-radius: 12px;
+                    @include text(14px, 22px, 500);
+                    font-family: var(--font-lato);
+                    margin-top: 25px;
+                }
+            }
+        }
+
+        .packageBoxLayout {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: space-between;
+            height: 100%;
+
+            .packageBoxWrapper {
+                width: 100%;
+                @include df-c-sb;
+                gap: 20px;
+
+                @include ipad-view {
+                    flex-direction: column;
+                }
+
+                .packageBoxCommon {
+                    margin: 0 20px;
+                    padding: 20px;
+                    border-radius: 25px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    button {
+                        border-radius: 22px;
+                        width: 100%;
+                        margin-top: 25px;
+                        background-color: transparent;
+                        @include text(14px, 22px, 400);
+                        border: 1px solid $gray_1;
+                        height: 52px;
+                        @include df-c-c;
+                        gap: 5px;
+                    }
+
+                    &.packageGreen {
+                        background-color: rgba(57, 205, 108, 0.1);
+
+                        button {
+                            border: 1px solid $packageGreen;
+                            color: $packageGreen;
+
+                            &.selected {
+                                background-color: rgba(57, 205, 108, 0.15);
+                            }
+                        }
+                    }
+
+                    &.packageBlue {
+                        background-color: rgba(37, 99, 235, 0.1);
+
+                        button {
+                            border: 1px solid $packageBlue;
+                            color: $packageBlue;
+
+                            &.selected {
+                                background-color: rgba(37, 99, 235, 0.15);
+                            }
+                        }
+                    }
+
+                    &.packagePurple {
+                        background-color: rgba(114, 57, 234, 0.1);
+
+                        button {
+                            border: 1px solid $packagePurple;
+                            color: $packagePurple;
+
+                            &.selected {
+                                background-color: rgba(114, 57, 234, 0.15);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .actionBtns {
+            width: 100%;
+            @include df-c-sb;
+            padding: 30px 0 0;
+
+            .actionBtn {
+                @include df-c-c;
+                gap: 8px;
+                @include text(14px, 20px, 400);
+                border-radius: 1.4rem;
+                padding: calc(0.8125rem + 1px) calc(1rem + 1px);
+                padding-right: 1.5rem;
+                padding-left: 1.5rem;
+                height: 52px;
+
+                @include mobile-sm-view {
+                    padding: calc(0.8125rem + 1px) calc(1rem + 1px);
+                }
+
+                &.prevBtn {
+                    color: $packageBlue !important;
+                    background-color: $lightBlue_3;
+                }
+
+                &.clearBtn {
+                    background-color: $gray_9;
+                    border-color: $gray_9;
+                    color: $dark_5;
+                }
+
+                @include tab-view {
+                    gap: 5px;
+                    @include text(12px, 18px, 400);
+
+                    svg {
+                        width: 14px;
+                    }
+                }
+            }
+
+            .rightBtns {
+                display: flex;
+                gap: 10px;
+            }
+        }
+
+        .packageTitle {
+            @include text(22px, 32px, 500);
+        }
+
+        .packagePrice {
+            @include text(34px, 42px, 700);
+        }
+
+        .packageIncludes {
+            @include text(16px, 24px, 500);
+            margin-bottom: 10px;
+        }
+
+        .packageListWrps {
+            .packageLine {
+                @include text(18px, 26px, 500);
+                margin-bottom: 10px;
+                display: flex;
+            }
+
+            ul {
+                padding: 0;
+                list-style: none;
+            }
+
+            .listLi {
+                color: $dark_4;
+                @include text(16px, 24px, 400);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+
+                &.inludesLi {
+                    svg {
+                        color: $packageGreen;
+                    }
+                }
+
+                &.excludesLi {
+                    svg {
+                        color: $red_3;
+                    }
+                }
+            }
+        }
+
+        .packagePricing {
+            padding-top: 30px;
+            margin-top: 20px;
+            border-top: 1px solid $gray_1;
+
+            .pricingLine {
+                @include df-c-sb;
+
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            &.packagePricingBox {
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.75);
+                border-radius: 20px;
+                margin-top: 10px;
+
+                .pricingLine {
+                    &:not(:last-child) {
+                        span {
+                            @include text(14px, 22px, 300);
+
+                            &:last-child {
+                                @include text(14px, 22px, 400);
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        margin-top: 10px;
+                        padding-top: 10px;
+                        border-top: 1px solid $gray_1;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    &.signUpBoxWps {
+        @include tab-max {
+            height: auto;
+        }
+    }
+}
+
+.commonModal {
+    text-align: center;
+
+    .modalHeaderCommon {
+        div {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            @include text(26px, 36px, 500);
+        }
+    }
+
+    .modalBody {
+        padding-top: 0;
+    }
+
+    p {
+        margin: 10px auto 30px;
+        @include text(18px, 26px, 400);
+        font-family: var(--font-lato);
+        color: $dark_4;
+
+        &.smallPara {
+            @include text(14px, 22px, 400);
+            margin-bottom: 0;
+            max-width: 522px;
+            color: $gray_8;
+        }
+    }
+
+    input {
+        text-align: center;
+    }
+
+    .saveBtn {
+        border-radius: 14px;
+        height: 44px;
+        @include df-c-c;
+        margin: 30px auto;
+        @include text(14px, 22px, 400);
+    }
+}

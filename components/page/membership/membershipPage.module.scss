@@ -1,0 +1,373 @@
+@import '@/styles/variables';
+
+.mainBox {
+    position: relative;
+    padding: 20px;
+
+    @include sm-laptop-screen {
+        padding: 10px 20px;
+    }
+
+    .headSrearch {
+        @include df-vc;
+        justify-content: flex-end;
+        position: relative;
+        gap: 18px;
+        padding: 24px 0;
+
+        @include mobile-view {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .searchTitle {
+            color: $gray_5;
+            @include text(18px, 21px, 500);
+            margin: 0;
+            font-family: var(--font-lato);
+
+            @include mobile-view {
+                width: 100%;
+            }
+        }
+
+        .btnWrpper {
+            display: flex;
+            gap: 18px;
+
+            .searchBtn {
+                height: 50px;
+                border-radius: 7px;
+                @include df-c-c;
+            }
+        }
+    }
+
+    .enrollAnouncmenBox {
+        background-color: rgba(22, 79, 242, 0.1);
+        padding: 30px;
+        border-radius: 10px;
+        color: $darkNavy;
+        margin-bottom: 30px;
+
+        @include sm-laptop-screen {
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            @include text(16px, 24px, 300);
+            margin: 0;
+            font-family: var(--font-arial);
+            @include df-vc;
+            gap: 12px;
+
+            svg {
+                @include mobile-sm-view {
+                    min-width: 20px;
+                }
+            }
+
+            &.anPBox {
+                display: flex;
+                gap: 10px;
+
+            }
+        }
+    }
+
+    .mainCardBoxWrapper {
+        .cardBoxGrid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 0;
+        }
+
+        .commonBoxCard {
+            border: 1px solid $gray_1;
+            border-radius: 24px;
+            box-shadow: 0px 4px 20px 0px #0000001A;
+            padding: 24px;
+            margin-right: 15px;
+            width: calc(33.33% - 15px);
+
+            @include tab-max {
+                width: calc(50% - 15px);
+            }
+
+            @include mobile-view {
+                width: 100%;
+                margin-right: 0;
+                padding: 15px;
+            }
+        }
+
+        h3 {
+            margin-bottom: 24px;
+            @include text(24px, 28px, 500);
+            letter-spacing: -0.02em;
+            color: $darkNavy;
+            font-family: var(--font-lato);
+
+            @include sm-laptop-screen {
+                margin-bottom: 18px;
+            }
+        }
+
+        .upperBox {
+            @include df-vc;
+            gap: 10px;
+            margin-bottom: 10px;
+
+            img {
+                border-radius: 8px;
+                object-fit: cover;
+                max-width: 140px;
+            }
+
+            .rightBox {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+
+                .lineRow {
+                    @include df-vc;
+                    justify-content: space-between;
+                    gap: 15px;
+
+                    &:last-child {
+                        justify-content: flex-start;
+                        gap: 10px;
+                    }
+
+                    .labelBox {
+                        color: $gray_5;
+                        @include text(16px, 24px, 300);
+                    }
+                }
+
+                .redBadge {
+                    background-color: $redLightBg !important;
+                    color: $red_2 !important;
+                    border: 1px solid $red_2 !important;
+                    border-radius: 4px;
+                    @include text(14px, 21px, 300);
+                    line-height: normal;
+                    height: 26px;
+                    @include df-c-c;
+                }
+
+                .priceBox {
+                    color: $navyBlue;
+                    @include text(16px, 24px, 300);
+                }
+            }
+        }
+
+        .lineRow {
+            @include df-vc;
+
+            &.relativelineRow {
+                position: relative;
+                gap: 5px;
+                @include df-c-c;
+            }
+
+            &.lineRowGray {
+                gap: 10px;
+                width: 100%;
+            }
+
+            .labelBox {
+                margin-right: 5px;
+                @include text(18px, 27px, 300);
+                font-family: var(--font-arial);
+                color: $darkBg;
+            }
+
+            .priceBox {
+                @include text(18px, 24px, 300);
+                font-family: var(--font-arial);
+                color: $gray_5;
+            }
+        }
+
+        .grayBoxed {
+            margin: 10px 0;
+            background-color: $gray_3;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            @include text(16px, 24px, 400);
+            width: 100%;
+
+            span {
+                font-family: var(--font-arial);
+                color: $gray_4;
+
+                &.textBlue {
+                    color: $navyBlue;
+                }
+            }
+        }
+    }
+
+    .dropDownBtn {
+        border-color: $gray_1;
+        width: 220px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 7px;
+        color: $darkNavy;
+
+        @include tab-max {
+            padding: 10px;
+            align-items: center;
+        }
+
+        &.searchdropDownBtn {
+            height: 50px;
+            align-items: center;
+            color: $gray_2;
+            padding: 12px;
+            @include text(16px, 24px, 300);
+        }
+
+        &:hover {
+            background-color: transparent !important;
+        }
+
+        &.blueBtn {
+            background-color: $navyBlue;
+            color: $white;
+            width: 100%;
+            max-width: 177px;
+            @include df-c-c;
+            gap: 5px;
+            margin: 0;
+            height: 50px;
+            @include text(14px, 21px, 700);
+
+            &:hover {
+                background-color: $navyBlue !important;
+            }
+
+            @include mobile-view {
+                padding: 10px;
+                height: 45px;
+            }
+        }
+    }
+
+    .dropDownOuter {
+        position: absolute;
+        z-index: 9;
+        background-color: $white;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transform: translate(0px, 54px);
+        box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
+        width: 100%;
+        max-width: 220px;
+        border-radius: 8px;
+
+        &.blueDropdownOuter {
+            max-width: 167px;
+            transform: translate(-80px, 74px);
+        }
+
+        .dropUl {
+            list-style: none;
+            padding: 2px;
+            margin: 0;
+            max-height: 280px;
+            overflow: auto;
+
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar {
+                width: 4px;
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border-radius: 8px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .dropItem {
+                &:not(:last-child) {
+                    border-bottom: 1px solid $gray_1;
+                }
+
+                .itemLink {
+                    color: $darkNavy2;
+                    text-decoration: none;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px;
+
+                    &:hover {
+                        background-color: $gray_1;
+                    }
+
+                    .titleB {
+                        @include text(14px, 20px, 400);
+                        font-family: var(--font-roboto);
+                        margin-bottom: 3px;
+                    }
+                }
+            }
+        }
+    }
+
+    .redBtn {
+        background-color: $red_2;
+        border-color: $red_2;
+        margin: 0;
+        height: 50px;
+        @include df-c-c;
+        border-radius: 7px;
+        width: 100%;
+        max-width: 177px;
+        @include text(14px, 21px, 700);
+
+        @include mobile-view {
+            padding: 10px;
+            height: 45px;
+        }
+    }
+
+    .tabCommon {
+        @include mobile-view {
+            padding: 0;
+        }
+    }
+}
+
+
+.popoverMainWrapper{
+    .popoverHeader {
+        @include text(14px, 21px, 400);
+    }
+    .popoverWrapper {
+        @include df-c-c;
+        gap: 10px;
+    
+    
+        .popoverBtns {
+            @include df-c-c;
+            height: 30px;
+            border-radius: 8px;
+            padding: 0 20px;
+            @include text(14px, 21px, 400);
+            text-transform: capitalize;
+        }
+    }
+}
