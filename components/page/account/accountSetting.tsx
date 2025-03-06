@@ -87,7 +87,7 @@ const AccountSettingView: React.FC = () => {
 
         try {
             const response = await myaccountApi.setProfile(userInfo);
-            if (response.status === "success") {
+            if (response.success == true) {
                 toast.success("User profile updated");
                 profileService.updateProfile();
             } else {
@@ -107,7 +107,7 @@ const AccountSettingView: React.FC = () => {
                 passwordConfirm: confirmPwd
             }
             const response = await myaccountApi.updatePassword(params);
-            if (response.status === "success") {
+            if (response.success == true) {
                 toast.success("Password updated");
             } else {
                 toast.error(response.messege || "Failed to update password.");
@@ -122,7 +122,7 @@ const AccountSettingView: React.FC = () => {
     const handleShowContactInfo = async (isChecked : boolean) => {
         try {
             const response = await myaccountApi.updateShowContactInfo(isChecked ? 2 : 1);
-            if (response.status === "success") {
+            if (response.success == true) {
                 setShowContactInfo(isChecked ? 2 : 1);
                 toast.success("Contact info visibility updated");
                 profileService.updateProfile();
@@ -139,7 +139,7 @@ const AccountSettingView: React.FC = () => {
     const handleSubscriptionChange = async (isChecked : boolean) => {
         try {
             const response = await myaccountApi.updateIsSubscribeEmail(isChecked ? 2 : 1);
-            if (response.status === "success") {
+            if (response.success == true) {
                 toast.success("Subscribed email setting is updated");
                 setIsSubscribedEmail(isChecked ? 2 : 1);
                 profileService.updateProfile();
