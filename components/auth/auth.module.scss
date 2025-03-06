@@ -285,6 +285,18 @@
                             margin-bottom: 20px;
                             @include text(22px, 32px, 500);
                             font-family: var(--font-lato);
+                            @include df-c-c;
+                            justify-content: flex-start;
+                            gap: 10px;
+
+                            .formTitleIconWrper{
+                                background-color: rgba(37, 99, 235, 0.1);
+                                border-radius: 14px;
+                                padding: 10px;
+                                height: 45px;
+                                width: 45px;
+                                @include df-c-c;
+                            }
                         }
 
                         input {

@@ -1,4 +1,3 @@
-import PageLayout from '@/components/layout/PageLayout'
 import { PageContextProvider } from '@/context/PageContext'
 import '@/styles/Bootstrap/scss/bootstrap.scss'
 import '@/styles/globals.scss'

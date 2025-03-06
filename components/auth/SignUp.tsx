@@ -102,7 +102,7 @@ const PackageBox: React.FC<PackageBoxProps> = ({
                     </div>
                 ))}
             </div>
-            <Button variant="outline" 
+            <Button variant="outline"
                 className={`${selectedPackage === title ? styles.selected : ''}`}>
                 {selectedPackage === title ? (
                     <>
@@ -176,24 +176,24 @@ const SignUpView: React.FC = () => {
     };
 
     const handleSkipNowClick = () => {
-        setShowPackageBox(false); 
-        setShowFormBox(true); 
+        setShowPackageBox(false);
+        setShowFormBox(true);
     };
 
     const handleSelectPackageClick = (packageName: string) => {
-        setSelectedPackage(packageName); 
-        setSkipButtonText("Continue"); 
+        setSelectedPackage(packageName);
+        setSkipButtonText("Continue");
     };
 
     const handleClearSelectionClick = () => {
-        setSelectedPackage(null); 
-        setSkipButtonText("Skip now"); 
+        setSelectedPackage(null);
+        setSkipButtonText("Skip now");
     };
 
     const handleContinueClick = () => {
         if (selectedPackage) {
             setShowPackageBox(false);
-            setShowFormBox(true); 
+            setShowFormBox(true);
         } else {
             handleSkipNowClick();
         }
@@ -278,15 +278,15 @@ const SignUpView: React.FC = () => {
 
     const resetCanvas = () => {
         if (canvasRef.current) {
-            canvasRef.current.clearCanvas(); 
+            canvasRef.current.clearCanvas();
         }
     };
 
-    const [password, setPassword] = useState<string>(""); 
+    const [password, setPassword] = useState<string>("");
     const [strength, setStrength] = useState<number>(0);
     const [showPassword, setShowPassword] = useState(false);
 
-   
+
     const validatePassword = (value: string) => {
         let strengthLevel = 0;
 
@@ -340,7 +340,7 @@ const SignUpView: React.FC = () => {
                                             onClick={handleJoinAffiliateClick}
                                         />
                                     </div>
-                                    <div  className={styles.commonCol}>
+                                    <div className={styles.commonCol}>
                                         <JoinCard
                                             isIcons={true}
                                             iconPath="./../images/compass.svg"
@@ -351,7 +351,7 @@ const SignUpView: React.FC = () => {
                                             onClick={handleJoinAffiliateClick}
                                         />
                                     </div>
-                                    <div  className={styles.commonCol}>
+                                    <div className={styles.commonCol}>
                                         <JoinCard
                                             title="First 500 Club"
                                             description="Join the club to receive unique benefits. The number of participants is limited — 500 members."
@@ -407,6 +407,9 @@ const SignUpView: React.FC = () => {
                                         <div className={`${styles.leftWraper} `}>
                                             <div className={`${styles.formInnerBox} `}>
                                                 <div className={`${styles.formHeader}`}>
+                                                    <span className={`${styles.formTitleIconWrper}`}>
+                                                        <Image src="./../images/userIcon.svg" alt="logo" width={22} height={22} className={styles.formTitleIcon} />
+                                                    </span>
                                                     Personal Information
                                                 </div>
                                                 <Form>
@@ -435,7 +438,19 @@ const SignUpView: React.FC = () => {
                                                             <Form.Label htmlFor="dob">Date of Birth</Form.Label>
                                                             <Form.Control id="dob" type="date" />
                                                         </Form.Group>
-                                                        <Form.Group className={`${styles.wFullXsm} col-6`}>
+                                                    </Row>
+                                                </Form>
+                                            </div>
+                                            <div className={`${styles.formInnerBox} `}>
+                                                <div className={`${styles.formHeader}`}>
+                                                    <span className={`${styles.formTitleIconWrper}`}>
+                                                        <Image src="./../images/gear.svg" alt="logo" width={22} height={22} className={styles.formTitleIcon} />
+                                                    </span>
+                                                    Username & Password
+                                                </div>
+                                                <Form>
+                                                    <Row className={styles.rowLines}>
+                                                        <Form.Group className={`${styles.wFullXsm} col-12`}>
                                                             <Form.Label htmlFor="">Username</Form.Label>
                                                             <Form.Control id="" type="text" placeholder="Enter Username" />
                                                         </Form.Group>
@@ -479,6 +494,9 @@ const SignUpView: React.FC = () => {
                                             </div>
                                             <div className={`${styles.formInnerBox} `}>
                                                 <div className={`${styles.formHeader}`}>
+                                                    <span className={`${styles.formTitleIconWrper}`}>
+                                                        <Image src="./../images/Creditcard.svg" alt="logo" width={22} height={22} className={styles.formTitleIcon} />
+                                                    </span>
                                                     Payment Information
                                                 </div>
                                                 <Form>
@@ -529,6 +547,9 @@ const SignUpView: React.FC = () => {
                                             </div>
                                             <div className={`${styles.formInnerBox} `}>
                                                 <div className={`${styles.formHeader}`}>
+                                                    <span className={`${styles.formTitleIconWrper}`}>
+                                                        <Image src="./../images/pen.svg" alt="logo" width={22} height={22} className={styles.formTitleIcon} />
+                                                    </span>
                                                     Sign a Payment
                                                 </div>
                                                 <div className={`${styles.headlineCanvas}`}>
@@ -557,7 +578,7 @@ const SignUpView: React.FC = () => {
                                                             id="id12"
                                                             className={`${styles.checkboxLabel}`}
                                                         />
-                                                   
+
                                                         <Form.Check
                                                             inline
                                                             label="I agree to receive marketing text messages once a week regarding sales and other promotional events at the phone number provided above to o2 Global and/or Escape Trips. Message & data rates may apply. Reply STOP to no longer receive messages at any time."
@@ -566,7 +587,7 @@ const SignUpView: React.FC = () => {
                                                             id="id3"
                                                             className={`${styles.checkboxLabel}`}
                                                         />
-                                                  
+
                                                         <Form.Check
                                                             inline
                                                             label="I agree to receive customer support text messages as needed for the orders that I have placed at the phone number provided above to o2 Global and/or Escape Trips. Message & data rates may apply. Reply STOP to no longer receive messages at any time."
@@ -578,7 +599,7 @@ const SignUpView: React.FC = () => {
                                                     </Row>
                                                     <Row className={styles.rowLines}>
                                                         <small className={styles.infoText}>
-                                                        *Field is required to submit the form
+                                                            *Field is required to submit the form
                                                         </small>
                                                     </Row>
                                                 </Form>
@@ -628,10 +649,10 @@ const SignUpView: React.FC = () => {
                                                     ))}
                                             </div>
                                             <small className={styles.conditionTxt}>
-                                            * Affiliate fees are nonrefundable.
+                                                * Affiliate fees are nonrefundable.
                                             </small>
                                             <small className={styles.conditionTxt}>
-                                            ** Technology fees are nonrefundable
+                                                ** Technology fees are nonrefundable
                                             </small>
                                         </FormRightWrapper>
                                     )}

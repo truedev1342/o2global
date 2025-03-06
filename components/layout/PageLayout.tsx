@@ -5,11 +5,16 @@ import HeaderComp from '@/components/Header/header'
 import layotStyles from "@/components/page/home/Home.module.scss";
 import Sidebar from '@/components/sidebar/SideBar';
 import { usePageContext } from '@/context/PageContext';
+import { useRouter, usePathname } from 'next/navigation';
+import { profileService } from '@/utils/services/profileService';
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isOverlay, setIsOverlay] = useState<any>('false');
+
 
   const { openOverlay } = usePageContext()
 
@@ -21,10 +26,11 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const overlay = localStorage.getItem('isOverlay');
-    setIsOverlay(overlay)
+    
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 900);
     };
+    setIsOverlay(overlay)
     handleResize(); // Check on mount
     window.addEventListener('resize', handleResize);
 
@@ -33,6 +39,21 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
     };
 
   }, []);
+
+  useEffect(() => {
+    const verifyAuth = async () => {
+      try {
+        const isAuthenticated = await profileService.checkLogin();
+        if (!isAuthenticated) {
+          router.replace('/signIn');
+          return;
+        }
+      } catch (error) {
+        console.error('Authentication failed:', error);
+      }
+    };
+    verifyAuth();
+  }, [pathname]);
 
   const handleOverlayClick = () => {
     toggleSidebar();

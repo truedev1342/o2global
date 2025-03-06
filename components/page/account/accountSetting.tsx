@@ -86,7 +86,7 @@ const AccountSettingView: React.FC = () => {
         updateUserInfo();
 
         try {
-            const response = await myaccountApi.setProfile(userInfo);
+            const response = await myaccountApi.setProfile(userInfo.user);
             if (response.success == true) {
                 toast.success("User profile updated");
                 profileService.updateProfile();

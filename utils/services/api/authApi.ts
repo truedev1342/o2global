@@ -18,7 +18,7 @@ export const authApi = {
         }
     },
     register: async (userData: any) => {
-        const response = await fetch(`${API_CONFIG.baseURL}/auth/register`, {
+        const response = await fetch(`${API_CONFIG.baseURL}/api/auth/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -26,5 +26,15 @@ export const authApi = {
             body: JSON.stringify(userData)
         });
         return response.json();
-    }
+    },
+    checkToken: async (token: string) => {
+        const response = await fetch(`${API_CONFIG.baseURL}/api/auth/check_token`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({token: token})
+        });
+        return response.json();
+    },
 };
