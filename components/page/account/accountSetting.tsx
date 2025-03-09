@@ -43,7 +43,7 @@ const AccountSettingView: React.FC = () => {
                 setAccountId(curUser?.uuid);
                 setEmail(curUser?.email);
                 setPhone(curUser?.phone);
-                setBirthday(curUser?.dob);
+                setBirthday(curUser?.dob?.substring(0, 10));
                 setBusinessName(curUser?.business_name);
                 setRecognitionName(curUser?.full_name);
                 setCompanyName(curUser?.company_name);
@@ -83,6 +83,7 @@ const AccountSettingView: React.FC = () => {
     };
 
     const handleSubmit = async () => {
+        debugger;
         updateUserInfo();
 
         try {

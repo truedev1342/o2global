@@ -11,6 +11,7 @@ import 'rsuite/dist/rsuite.min.css';
 import { DateRangePicker } from 'rsuite';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import Link from 'next/link';
+import { myteamApi } from '@/utils/services/api/myteamApi';
 
 interface TankData {
     id: number;
@@ -29,7 +30,10 @@ interface TankData {
     currentRankactive?: boolean;
     highestRankactive?: boolean;
 }
-
+interface StatItem {
+    title: string;
+    value: number;
+}
 const NameBox: React.FC<{ name: string; rank: string; date: string }> = ({ name, rank, date }) => (
     <div className={styles.nameBox}>
         <Image src="./../images/avatar.png" alt="avatar" width={48} height={48} className={styles.avatarImg} />
@@ -218,8 +222,22 @@ const SponsorListPage: React.FC = () => {
     const [data, setData] = useState<TankData[]>([]);
     const [filteredData, setFilteredData] = useState<TankData[]>([]);
     const [loading, setLoading] = useState(true);
+    const [stat, setStat] = useState<StatItem[] | null>(null);
 
     useEffect(() => {
+        const fetchStat = async () => {
+            const response = await myteamApi.getStat();
+            if (response.success == true) {
+                setStat(
+                    [
+                        { title: "Personally Enrolled Affiliates", value: response.data.personal_affiliates },
+                        { title: "Personally Enrolled Customers", value: response.data.personal_preferreds },
+                        { title: "Total Affiliates", value: response.data.total_affiliates },
+                        { title: "Total Customers", value: response.data.total_preferreds },
+                    ]
+                );
+            }
+        }
         const fetchData = async () => {
             setLoading(true);
             await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -263,6 +281,10 @@ const SponsorListPage: React.FC = () => {
             setFilteredData(fetchedData);
             setLoading(false);
         };
+        
+
+        fetchStat();
+
         fetchData();
     }, []);
 
@@ -284,12 +306,7 @@ const SponsorListPage: React.FC = () => {
         <section className={styles.mainBox}>
             <div className={styles.tableBoxMain}>
                 <div className={styles.cardBoxWrapper}>
-                    {[
-                        { title: "Personally Enrolled Affiliates", value: 2 },
-                        { title: "Personally Enrolled Customers", value: 0 },
-                        { title: "Total Affiliates", value: 7 },
-                        { title: "Total Customers", value: 0 },
-                    ].map(({ title, value }, index) => (
+                    {stat?.map(({ title, value }, index) => (
                         <InfoCard key={index} title={title} value={value} />
                     ))}
                 </div>
